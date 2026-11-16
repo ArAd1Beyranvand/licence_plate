@@ -1,0 +1,767 @@
+{
+  "name": "license_plate",
+  "version": "0.1.0",
+  "description": "Licence plates of 182 countries in one package, for plate_core.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArAd1Beyranvand/licence_plate.git",
+    "directory": "typescript"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./albania": {
+      "types": "./dist/countries/albania/index.d.ts",
+      "default": "./dist/countries/albania/index.js"
+    },
+    "./algeria": {
+      "types": "./dist/countries/algeria/index.d.ts",
+      "default": "./dist/countries/algeria/index.js"
+    },
+    "./andorra": {
+      "types": "./dist/countries/andorra/index.d.ts",
+      "default": "./dist/countries/andorra/index.js"
+    },
+    "./angola": {
+      "types": "./dist/countries/angola/index.d.ts",
+      "default": "./dist/countries/angola/index.js"
+    },
+    "./antigua_and_barbuda": {
+      "types": "./dist/countries/antigua_and_barbuda/index.d.ts",
+      "default": "./dist/countries/antigua_and_barbuda/index.js"
+    },
+    "./argentina": {
+      "types": "./dist/countries/argentina/index.d.ts",
+      "default": "./dist/countries/argentina/index.js"
+    },
+    "./australia": {
+      "types": "./dist/countries/australia/index.d.ts",
+      "default": "./dist/countries/australia/index.js"
+    },
+    "./austria": {
+      "types": "./dist/countries/austria/index.d.ts",
+      "default": "./dist/countries/austria/index.js"
+    },
+    "./bahamas": {
+      "types": "./dist/countries/bahamas/index.d.ts",
+      "default": "./dist/countries/bahamas/index.js"
+    },
+    "./bangladesh": {
+      "types": "./dist/countries/bangladesh/index.d.ts",
+      "default": "./dist/countries/bangladesh/index.js"
+    },
+    "./barbados": {
+      "types": "./dist/countries/barbados/index.d.ts",
+      "default": "./dist/countries/barbados/index.js"
+    },
+    "./belgium": {
+      "types": "./dist/countries/belgium/index.d.ts",
+      "default": "./dist/countries/belgium/index.js"
+    },
+    "./belize": {
+      "types": "./dist/countries/belize/index.d.ts",
+      "default": "./dist/countries/belize/index.js"
+    },
+    "./benin": {
+      "types": "./dist/countries/benin/index.d.ts",
+      "default": "./dist/countries/benin/index.js"
+    },
+    "./bhutan": {
+      "types": "./dist/countries/bhutan/index.d.ts",
+      "default": "./dist/countries/bhutan/index.js"
+    },
+    "./bolivia": {
+      "types": "./dist/countries/bolivia/index.d.ts",
+      "default": "./dist/countries/bolivia/index.js"
+    },
+    "./bosnia_and_herzegovina": {
+      "types": "./dist/countries/bosnia_and_herzegovina/index.d.ts",
+      "default": "./dist/countries/bosnia_and_herzegovina/index.js"
+    },
+    "./botswana": {
+      "types": "./dist/countries/botswana/index.d.ts",
+      "default": "./dist/countries/botswana/index.js"
+    },
+    "./brazil": {
+      "types": "./dist/countries/brazil/index.d.ts",
+      "default": "./dist/countries/brazil/index.js"
+    },
+    "./brunei": {
+      "types": "./dist/countries/brunei/index.d.ts",
+      "default": "./dist/countries/brunei/index.js"
+    },
+    "./bulgaria": {
+      "types": "./dist/countries/bulgaria/index.d.ts",
+      "default": "./dist/countries/bulgaria/index.js"
+    },
+    "./burkina_faso": {
+      "types": "./dist/countries/burkina_faso/index.d.ts",
+      "default": "./dist/countries/burkina_faso/index.js"
+    },
+    "./burundi": {
+      "types": "./dist/countries/burundi/index.d.ts",
+      "default": "./dist/countries/burundi/index.js"
+    },
+    "./cambodia": {
+      "types": "./dist/countries/cambodia/index.d.ts",
+      "default": "./dist/countries/cambodia/index.js"
+    },
+    "./cameroon": {
+      "types": "./dist/countries/cameroon/index.d.ts",
+      "default": "./dist/countries/cameroon/index.js"
+    },
+    "./canada": {
+      "types": "./dist/countries/canada/index.d.ts",
+      "default": "./dist/countries/canada/index.js"
+    },
+    "./canary_islands": {
+      "types": "./dist/countries/canary_islands/index.d.ts",
+      "default": "./dist/countries/canary_islands/index.js"
+    },
+    "./cape_verde": {
+      "types": "./dist/countries/cape_verde/index.d.ts",
+      "default": "./dist/countries/cape_verde/index.js"
+    },
+    "./caribbean": {
+      "types": "./dist/countries/caribbean/index.d.ts",
+      "default": "./dist/countries/caribbean/index.js"
+    },
+    "./central_african_republic": {
+      "types": "./dist/countries/central_african_republic/index.d.ts",
+      "default": "./dist/countries/central_african_republic/index.js"
+    },
+    "./chad": {
+      "types": "./dist/countries/chad/index.d.ts",
+      "default": "./dist/countries/chad/index.js"
+    },
+    "./chile": {
+      "types": "./dist/countries/chile/index.d.ts",
+      "default": "./dist/countries/chile/index.js"
+    },
+    "./china": {
+      "types": "./dist/countries/china/index.d.ts",
+      "default": "./dist/countries/china/index.js"
+    },
+    "./colombia": {
+      "types": "./dist/countries/colombia/index.d.ts",
+      "default": "./dist/countries/colombia/index.js"
+    },
+    "./comoros": {
+      "types": "./dist/countries/comoros/index.d.ts",
+      "default": "./dist/countries/comoros/index.js"
+    },
+    "./costa_rica": {
+      "types": "./dist/countries/costa_rica/index.d.ts",
+      "default": "./dist/countries/costa_rica/index.js"
+    },
+    "./croatia": {
+      "types": "./dist/countries/croatia/index.d.ts",
+      "default": "./dist/countries/croatia/index.js"
+    },
+    "./cuba": {
+      "types": "./dist/countries/cuba/index.d.ts",
+      "default": "./dist/countries/cuba/index.js"
+    },
+    "./cyprus": {
+      "types": "./dist/countries/cyprus/index.d.ts",
+      "default": "./dist/countries/cyprus/index.js"
+    },
+    "./czech_republic": {
+      "types": "./dist/countries/czech_republic/index.d.ts",
+      "default": "./dist/countries/czech_republic/index.js"
+    },
+    "./democratic_republic_of_the_congo": {
+      "types": "./dist/countries/democratic_republic_of_the_congo/index.d.ts",
+      "default": "./dist/countries/democratic_republic_of_the_congo/index.js"
+    },
+    "./denmark": {
+      "types": "./dist/countries/denmark/index.d.ts",
+      "default": "./dist/countries/denmark/index.js"
+    },
+    "./djibouti": {
+      "types": "./dist/countries/djibouti/index.d.ts",
+      "default": "./dist/countries/djibouti/index.js"
+    },
+    "./dominica": {
+      "types": "./dist/countries/dominica/index.d.ts",
+      "default": "./dist/countries/dominica/index.js"
+    },
+    "./dominican_republic": {
+      "types": "./dist/countries/dominican_republic/index.d.ts",
+      "default": "./dist/countries/dominican_republic/index.js"
+    },
+    "./ecuador": {
+      "types": "./dist/countries/ecuador/index.d.ts",
+      "default": "./dist/countries/ecuador/index.js"
+    },
+    "./egypt": {
+      "types": "./dist/countries/egypt/index.d.ts",
+      "default": "./dist/countries/egypt/index.js"
+    },
+    "./el_salvador": {
+      "types": "./dist/countries/el_salvador/index.d.ts",
+      "default": "./dist/countries/el_salvador/index.js"
+    },
+    "./equatorial_guinea": {
+      "types": "./dist/countries/equatorial_guinea/index.d.ts",
+      "default": "./dist/countries/equatorial_guinea/index.js"
+    },
+    "./eritrea": {
+      "types": "./dist/countries/eritrea/index.d.ts",
+      "default": "./dist/countries/eritrea/index.js"
+    },
+    "./estonia": {
+      "types": "./dist/countries/estonia/index.d.ts",
+      "default": "./dist/countries/estonia/index.js"
+    },
+    "./eswatini": {
+      "types": "./dist/countries/eswatini/index.d.ts",
+      "default": "./dist/countries/eswatini/index.js"
+    },
+    "./ethiopia": {
+      "types": "./dist/countries/ethiopia/index.d.ts",
+      "default": "./dist/countries/ethiopia/index.js"
+    },
+    "./federated_states_of_micronesia": {
+      "types": "./dist/countries/federated_states_of_micronesia/index.d.ts",
+      "default": "./dist/countries/federated_states_of_micronesia/index.js"
+    },
+    "./fiji": {
+      "types": "./dist/countries/fiji/index.d.ts",
+      "default": "./dist/countries/fiji/index.js"
+    },
+    "./finland": {
+      "types": "./dist/countries/finland/index.d.ts",
+      "default": "./dist/countries/finland/index.js"
+    },
+    "./france": {
+      "types": "./dist/countries/france/index.d.ts",
+      "default": "./dist/countries/france/index.js"
+    },
+    "./gabon": {
+      "types": "./dist/countries/gabon/index.d.ts",
+      "default": "./dist/countries/gabon/index.js"
+    },
+    "./gambia": {
+      "types": "./dist/countries/gambia/index.d.ts",
+      "default": "./dist/countries/gambia/index.js"
+    },
+    "./georgia_country": {
+      "types": "./dist/countries/georgia_country/index.d.ts",
+      "default": "./dist/countries/georgia_country/index.js"
+    },
+    "./germany": {
+      "types": "./dist/countries/germany/index.d.ts",
+      "default": "./dist/countries/germany/index.js"
+    },
+    "./ghana": {
+      "types": "./dist/countries/ghana/index.d.ts",
+      "default": "./dist/countries/ghana/index.js"
+    },
+    "./greece": {
+      "types": "./dist/countries/greece/index.d.ts",
+      "default": "./dist/countries/greece/index.js"
+    },
+    "./grenada": {
+      "types": "./dist/countries/grenada/index.d.ts",
+      "default": "./dist/countries/grenada/index.js"
+    },
+    "./guatemala": {
+      "types": "./dist/countries/guatemala/index.d.ts",
+      "default": "./dist/countries/guatemala/index.js"
+    },
+    "./guinea": {
+      "types": "./dist/countries/guinea/index.d.ts",
+      "default": "./dist/countries/guinea/index.js"
+    },
+    "./guyana": {
+      "types": "./dist/countries/guyana/index.d.ts",
+      "default": "./dist/countries/guyana/index.js"
+    },
+    "./haiti": {
+      "types": "./dist/countries/haiti/index.d.ts",
+      "default": "./dist/countries/haiti/index.js"
+    },
+    "./honduras": {
+      "types": "./dist/countries/honduras/index.d.ts",
+      "default": "./dist/countries/honduras/index.js"
+    },
+    "./hungary": {
+      "types": "./dist/countries/hungary/index.d.ts",
+      "default": "./dist/countries/hungary/index.js"
+    },
+    "./iceland": {
+      "types": "./dist/countries/iceland/index.d.ts",
+      "default": "./dist/countries/iceland/index.js"
+    },
+    "./india": {
+      "types": "./dist/countries/india/index.d.ts",
+      "default": "./dist/countries/india/index.js"
+    },
+    "./indian_ocean": {
+      "types": "./dist/countries/indian_ocean/index.d.ts",
+      "default": "./dist/countries/indian_ocean/index.js"
+    },
+    "./indonesia": {
+      "types": "./dist/countries/indonesia/index.d.ts",
+      "default": "./dist/countries/indonesia/index.js"
+    },
+    "./iran": {
+      "types": "./dist/countries/iran/index.d.ts",
+      "default": "./dist/countries/iran/index.js"
+    },
+    "./iranshahr": {
+      "types": "./dist/countries/iranshahr/index.d.ts",
+      "default": "./dist/countries/iranshahr/index.js"
+    },
+    "./italy": {
+      "types": "./dist/countries/italy/index.d.ts",
+      "default": "./dist/countries/italy/index.js"
+    },
+    "./ivory_coast": {
+      "types": "./dist/countries/ivory_coast/index.d.ts",
+      "default": "./dist/countries/ivory_coast/index.js"
+    },
+    "./jamaica": {
+      "types": "./dist/countries/jamaica/index.d.ts",
+      "default": "./dist/countries/jamaica/index.js"
+    },
+    "./japan": {
+      "types": "./dist/countries/japan/index.d.ts",
+      "default": "./dist/countries/japan/index.js"
+    },
+    "./jordan": {
+      "types": "./dist/countries/jordan/index.d.ts",
+      "default": "./dist/countries/jordan/index.js"
+    },
+    "./kanak": {
+      "types": "./dist/countries/kanak/index.d.ts",
+      "default": "./dist/countries/kanak/index.js"
+    },
+    "./kenya": {
+      "types": "./dist/countries/kenya/index.d.ts",
+      "default": "./dist/countries/kenya/index.js"
+    },
+    "./kiribati": {
+      "types": "./dist/countries/kiribati/index.d.ts",
+      "default": "./dist/countries/kiribati/index.js"
+    },
+    "./kyrgyzstan": {
+      "types": "./dist/countries/kyrgyzstan/index.d.ts",
+      "default": "./dist/countries/kyrgyzstan/index.js"
+    },
+    "./laos": {
+      "types": "./dist/countries/laos/index.d.ts",
+      "default": "./dist/countries/laos/index.js"
+    },
+    "./latvia": {
+      "types": "./dist/countries/latvia/index.d.ts",
+      "default": "./dist/countries/latvia/index.js"
+    },
+    "./lebanon": {
+      "types": "./dist/countries/lebanon/index.d.ts",
+      "default": "./dist/countries/lebanon/index.js"
+    },
+    "./lesotho": {
+      "types": "./dist/countries/lesotho/index.d.ts",
+      "default": "./dist/countries/lesotho/index.js"
+    },
+    "./liberia": {
+      "types": "./dist/countries/liberia/index.d.ts",
+      "default": "./dist/countries/liberia/index.js"
+    },
+    "./libya": {
+      "types": "./dist/countries/libya/index.d.ts",
+      "default": "./dist/countries/libya/index.js"
+    },
+    "./liechtenstein": {
+      "types": "./dist/countries/liechtenstein/index.d.ts",
+      "default": "./dist/countries/liechtenstein/index.js"
+    },
+    "./lithuania": {
+      "types": "./dist/countries/lithuania/index.d.ts",
+      "default": "./dist/countries/lithuania/index.js"
+    },
+    "./luxembourg": {
+      "types": "./dist/countries/luxembourg/index.d.ts",
+      "default": "./dist/countries/luxembourg/index.js"
+    },
+    "./madagascar": {
+      "types": "./dist/countries/madagascar/index.d.ts",
+      "default": "./dist/countries/madagascar/index.js"
+    },
+    "./madeira": {
+      "types": "./dist/countries/madeira/index.d.ts",
+      "default": "./dist/countries/madeira/index.js"
+    },
+    "./malawi": {
+      "types": "./dist/countries/malawi/index.d.ts",
+      "default": "./dist/countries/malawi/index.js"
+    },
+    "./malaysia": {
+      "types": "./dist/countries/malaysia/index.d.ts",
+      "default": "./dist/countries/malaysia/index.js"
+    },
+    "./maldives": {
+      "types": "./dist/countries/maldives/index.d.ts",
+      "default": "./dist/countries/maldives/index.js"
+    },
+    "./mali": {
+      "types": "./dist/countries/mali/index.d.ts",
+      "default": "./dist/countries/mali/index.js"
+    },
+    "./malta": {
+      "types": "./dist/countries/malta/index.d.ts",
+      "default": "./dist/countries/malta/index.js"
+    },
+    "./marshall_islands": {
+      "types": "./dist/countries/marshall_islands/index.d.ts",
+      "default": "./dist/countries/marshall_islands/index.js"
+    },
+    "./mauritania": {
+      "types": "./dist/countries/mauritania/index.d.ts",
+      "default": "./dist/countries/mauritania/index.js"
+    },
+    "./mauritius": {
+      "types": "./dist/countries/mauritius/index.d.ts",
+      "default": "./dist/countries/mauritius/index.js"
+    },
+    "./mexico": {
+      "types": "./dist/countries/mexico/index.d.ts",
+      "default": "./dist/countries/mexico/index.js"
+    },
+    "./moldova": {
+      "types": "./dist/countries/moldova/index.d.ts",
+      "default": "./dist/countries/moldova/index.js"
+    },
+    "./monaco": {
+      "types": "./dist/countries/monaco/index.d.ts",
+      "default": "./dist/countries/monaco/index.js"
+    },
+    "./mongolia": {
+      "types": "./dist/countries/mongolia/index.d.ts",
+      "default": "./dist/countries/mongolia/index.js"
+    },
+    "./montenegro": {
+      "types": "./dist/countries/montenegro/index.d.ts",
+      "default": "./dist/countries/montenegro/index.js"
+    },
+    "./morocco": {
+      "types": "./dist/countries/morocco/index.d.ts",
+      "default": "./dist/countries/morocco/index.js"
+    },
+    "./mozambique": {
+      "types": "./dist/countries/mozambique/index.d.ts",
+      "default": "./dist/countries/mozambique/index.js"
+    },
+    "./myanmar": {
+      "types": "./dist/countries/myanmar/index.d.ts",
+      "default": "./dist/countries/myanmar/index.js"
+    },
+    "./namibia": {
+      "types": "./dist/countries/namibia/index.d.ts",
+      "default": "./dist/countries/namibia/index.js"
+    },
+    "./nauru": {
+      "types": "./dist/countries/nauru/index.d.ts",
+      "default": "./dist/countries/nauru/index.js"
+    },
+    "./nepal": {
+      "types": "./dist/countries/nepal/index.d.ts",
+      "default": "./dist/countries/nepal/index.js"
+    },
+    "./netherlands": {
+      "types": "./dist/countries/netherlands/index.d.ts",
+      "default": "./dist/countries/netherlands/index.js"
+    },
+    "./new_zealand": {
+      "types": "./dist/countries/new_zealand/index.d.ts",
+      "default": "./dist/countries/new_zealand/index.js"
+    },
+    "./nicaragua": {
+      "types": "./dist/countries/nicaragua/index.d.ts",
+      "default": "./dist/countries/nicaragua/index.js"
+    },
+    "./niger": {
+      "types": "./dist/countries/niger/index.d.ts",
+      "default": "./dist/countries/niger/index.js"
+    },
+    "./nigeria": {
+      "types": "./dist/countries/nigeria/index.d.ts",
+      "default": "./dist/countries/nigeria/index.js"
+    },
+    "./north_korea": {
+      "types": "./dist/countries/north_korea/index.d.ts",
+      "default": "./dist/countries/north_korea/index.js"
+    },
+    "./north_macedonia": {
+      "types": "./dist/countries/north_macedonia/index.d.ts",
+      "default": "./dist/countries/north_macedonia/index.js"
+    },
+    "./norway": {
+      "types": "./dist/countries/norway/index.d.ts",
+      "default": "./dist/countries/norway/index.js"
+    },
+    "./pakistan": {
+      "types": "./dist/countries/pakistan/index.d.ts",
+      "default": "./dist/countries/pakistan/index.js"
+    },
+    "./palau": {
+      "types": "./dist/countries/palau/index.d.ts",
+      "default": "./dist/countries/palau/index.js"
+    },
+    "./palestine": {
+      "types": "./dist/countries/palestine/index.d.ts",
+      "default": "./dist/countries/palestine/index.js"
+    },
+    "./panama": {
+      "types": "./dist/countries/panama/index.d.ts",
+      "default": "./dist/countries/panama/index.js"
+    },
+    "./papua_new_guinea": {
+      "types": "./dist/countries/papua_new_guinea/index.d.ts",
+      "default": "./dist/countries/papua_new_guinea/index.js"
+    },
+    "./paraguay": {
+      "types": "./dist/countries/paraguay/index.d.ts",
+      "default": "./dist/countries/paraguay/index.js"
+    },
+    "./peru": {
+      "types": "./dist/countries/peru/index.d.ts",
+      "default": "./dist/countries/peru/index.js"
+    },
+    "./philippines": {
+      "types": "./dist/countries/philippines/index.d.ts",
+      "default": "./dist/countries/philippines/index.js"
+    },
+    "./poland": {
+      "types": "./dist/countries/poland/index.d.ts",
+      "default": "./dist/countries/poland/index.js"
+    },
+    "./polynesia": {
+      "types": "./dist/countries/polynesia/index.d.ts",
+      "default": "./dist/countries/polynesia/index.js"
+    },
+    "./portugal": {
+      "types": "./dist/countries/portugal/index.d.ts",
+      "default": "./dist/countries/portugal/index.js"
+    },
+    "./republic_of_ireland": {
+      "types": "./dist/countries/republic_of_ireland/index.d.ts",
+      "default": "./dist/countries/republic_of_ireland/index.js"
+    },
+    "./republic_of_the_congo": {
+      "types": "./dist/countries/republic_of_the_congo/index.d.ts",
+      "default": "./dist/countries/republic_of_the_congo/index.js"
+    },
+    "./romania": {
+      "types": "./dist/countries/romania/index.d.ts",
+      "default": "./dist/countries/romania/index.js"
+    },
+    "./russia": {
+      "types": "./dist/countries/russia/index.d.ts",
+      "default": "./dist/countries/russia/index.js"
+    },
+    "./rwanda": {
+      "types": "./dist/countries/rwanda/index.d.ts",
+      "default": "./dist/countries/rwanda/index.js"
+    },
+    "./sahara": {
+      "types": "./dist/countries/sahara/index.d.ts",
+      "default": "./dist/countries/sahara/index.js"
+    },
+    "./saint_helena": {
+      "types": "./dist/countries/saint_helena/index.d.ts",
+      "default": "./dist/countries/saint_helena/index.js"
+    },
+    "./saint_kitts_and_nevis": {
+      "types": "./dist/countries/saint_kitts_and_nevis/index.d.ts",
+      "default": "./dist/countries/saint_kitts_and_nevis/index.js"
+    },
+    "./saint_lucia": {
+      "types": "./dist/countries/saint_lucia/index.d.ts",
+      "default": "./dist/countries/saint_lucia/index.js"
+    },
+    "./saint_vincent_and_the_grenadines": {
+      "types": "./dist/countries/saint_vincent_and_the_grenadines/index.d.ts",
+      "default": "./dist/countries/saint_vincent_and_the_grenadines/index.js"
+    },
+    "./samoa": {
+      "types": "./dist/countries/samoa/index.d.ts",
+      "default": "./dist/countries/samoa/index.js"
+    },
+    "./san_marino": {
+      "types": "./dist/countries/san_marino/index.d.ts",
+      "default": "./dist/countries/san_marino/index.js"
+    },
+    "./senegal": {
+      "types": "./dist/countries/senegal/index.d.ts",
+      "default": "./dist/countries/senegal/index.js"
+    },
+    "./serbia": {
+      "types": "./dist/countries/serbia/index.d.ts",
+      "default": "./dist/countries/serbia/index.js"
+    },
+    "./seychelles": {
+      "types": "./dist/countries/seychelles/index.d.ts",
+      "default": "./dist/countries/seychelles/index.js"
+    },
+    "./singapore": {
+      "types": "./dist/countries/singapore/index.d.ts",
+      "default": "./dist/countries/singapore/index.js"
+    },
+    "./slovakia": {
+      "types": "./dist/countries/slovakia/index.d.ts",
+      "default": "./dist/countries/slovakia/index.js"
+    },
+    "./slovenia": {
+      "types": "./dist/countries/slovenia/index.d.ts",
+      "default": "./dist/countries/slovenia/index.js"
+    },
+    "./solomon_islands": {
+      "types": "./dist/countries/solomon_islands/index.d.ts",
+      "default": "./dist/countries/solomon_islands/index.js"
+    },
+    "./somalia": {
+      "types": "./dist/countries/somalia/index.d.ts",
+      "default": "./dist/countries/somalia/index.js"
+    },
+    "./south_africa": {
+      "types": "./dist/countries/south_africa/index.d.ts",
+      "default": "./dist/countries/south_africa/index.js"
+    },
+    "./south_sudan": {
+      "types": "./dist/countries/south_sudan/index.d.ts",
+      "default": "./dist/countries/south_sudan/index.js"
+    },
+    "./sovereign_military_order_of_malta": {
+      "types": "./dist/countries/sovereign_military_order_of_malta/index.d.ts",
+      "default": "./dist/countries/sovereign_military_order_of_malta/index.js"
+    },
+    "./spain": {
+      "types": "./dist/countries/spain/index.d.ts",
+      "default": "./dist/countries/spain/index.js"
+    },
+    "./sri_lanka": {
+      "types": "./dist/countries/sri_lanka/index.d.ts",
+      "default": "./dist/countries/sri_lanka/index.js"
+    },
+    "./sudan": {
+      "types": "./dist/countries/sudan/index.d.ts",
+      "default": "./dist/countries/sudan/index.js"
+    },
+    "./suriname": {
+      "types": "./dist/countries/suriname/index.d.ts",
+      "default": "./dist/countries/suriname/index.js"
+    },
+    "./sweden": {
+      "types": "./dist/countries/sweden/index.d.ts",
+      "default": "./dist/countries/sweden/index.js"
+    },
+    "./switzerland": {
+      "types": "./dist/countries/switzerland/index.d.ts",
+      "default": "./dist/countries/switzerland/index.js"
+    },
+    "./syria": {
+      "types": "./dist/countries/syria/index.d.ts",
+      "default": "./dist/countries/syria/index.js"
+    },
+    "./tanzania": {
+      "types": "./dist/countries/tanzania/index.d.ts",
+      "default": "./dist/countries/tanzania/index.js"
+    },
+    "./thailand": {
+      "types": "./dist/countries/thailand/index.d.ts",
+      "default": "./dist/countries/thailand/index.js"
+    },
+    "./timor_leste": {
+      "types": "./dist/countries/timor_leste/index.d.ts",
+      "default": "./dist/countries/timor_leste/index.js"
+    },
+    "./togo": {
+      "types": "./dist/countries/togo/index.d.ts",
+      "default": "./dist/countries/togo/index.js"
+    },
+    "./tonga": {
+      "types": "./dist/countries/tonga/index.d.ts",
+      "default": "./dist/countries/tonga/index.js"
+    },
+    "./trinidad_and_tobago": {
+      "types": "./dist/countries/trinidad_and_tobago/index.d.ts",
+      "default": "./dist/countries/trinidad_and_tobago/index.js"
+    },
+    "./tunisia": {
+      "types": "./dist/countries/tunisia/index.d.ts",
+      "default": "./dist/countries/tunisia/index.js"
+    },
+    "./tuvalu": {
+      "types": "./dist/countries/tuvalu/index.d.ts",
+      "default": "./dist/countries/tuvalu/index.js"
+    },
+    "./uganda": {
+      "types": "./dist/countries/uganda/index.d.ts",
+      "default": "./dist/countries/uganda/index.js"
+    },
+    "./united_kingdom": {
+      "types": "./dist/countries/united_kingdom/index.d.ts",
+      "default": "./dist/countries/united_kingdom/index.js"
+    },
+    "./uruguay": {
+      "types": "./dist/countries/uruguay/index.d.ts",
+      "default": "./dist/countries/uruguay/index.js"
+    },
+    "./vanuatu": {
+      "types": "./dist/countries/vanuatu/index.d.ts",
+      "default": "./dist/countries/vanuatu/index.js"
+    },
+    "./vatican_city": {
+      "types": "./dist/countries/vatican_city/index.d.ts",
+      "default": "./dist/countries/vatican_city/index.js"
+    },
+    "./venezuela": {
+      "types": "./dist/countries/venezuela/index.d.ts",
+      "default": "./dist/countries/venezuela/index.js"
+    },
+    "./vietnam": {
+      "types": "./dist/countries/vietnam/index.d.ts",
+      "default": "./dist/countries/vietnam/index.js"
+    },
+    "./yemen": {
+      "types": "./dist/countries/yemen/index.d.ts",
+      "default": "./dist/countries/yemen/index.js"
+    },
+    "./zambia": {
+      "types": "./dist/countries/zambia/index.d.ts",
+      "default": "./dist/countries/zambia/index.js"
+    },
+    "./zimbabwe": {
+      "types": "./dist/countries/zimbabwe/index.d.ts",
+      "default": "./dist/countries/zimbabwe/index.js"
+    },
+    "./packages/*": "./packages/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "packages"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "plate_core": ">=0.12.2 <1.0.0"
+  },
+  "devDependencies": {
+    "plate_core": ">=0.12.2 <1.0.0",
+    "typescript": "^5.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

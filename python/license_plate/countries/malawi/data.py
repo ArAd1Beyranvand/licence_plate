@@ -1,0 +1,5 @@
+"""Generated from the shared data of malawi_plate; do not edit."""
+from plate_core import load_country
+from .malawi_validators import MalawiValidator
+
+malawi = load_country(r'''{"package":"malawi_plate","alphabets":{"latin.digits":["latin.digits",[["0","9"]],"typed",true],"latin.upper":["latin.upper",[["A","Z"]]]},"countries":{"MalawiCountry.malawi":["mw",4280359456,4291018416,1.75]},"themes":{"MalawiThemes.private":[4280359456,4291018416,0.02,0.04,4285228136]},"specs":[["mw.private","MalawiCountry.malawi",520,124,[["latin.upper",[20.8,0.6,140.7,110],2,2,22.83,null,"letters"],["latin.digits",[200.2,0.6,289.6,110],4,4,24.88,null,"serial"]]]],"resolvers":{},"assets":[],"gallery":[["mw.private","Private car","mw.private",["BC","5049"],"Malawi","Private — 520 × 124",null,"MalawiThemes.private","MalawiCountry.malawi","MalawiValidator"]]}''', {}, {'MalawiValidator': MalawiValidator})

@@ -1,0 +1,5 @@
+"""Generated from the shared data of dominica_plate; do not edit."""
+from plate_core import load_country
+from .dominica_validators import DominicaValidator
+
+dominica = load_country(r'''{"package":"dominica_plate","alphabets":{"latin.digits":["latin.digits",[["0","9"]],"typed",true]},"countries":{"DominicaCountry.dominica":["dm",4280163362,4291018686,1.75]},"themes":{"DominicaThemes.regular":[4280163362,4291018686,0,0,4285163372]},"specs":[["dm.regular","DominicaCountry.dominica",300,93,[["latin.digits",[59,0,174.2,93],3,3,17.8907,null,"serial"]],[],null,{"kind":"fill","fill":{"kind":"field"},"shape":null},[],[],[],[],null,[],"ltr",0]],"resolvers":{},"assets":[],"gallery":[["dm.regular","Regular · silver on black","dm.regular",["570"],"Dominica","300 × 93",null,"DominicaThemes.regular","DominicaCountry.dominica","DominicaValidator"]]}''', {}, {'DominicaValidator': DominicaValidator})

@@ -1,0 +1,5 @@
+"""Generated from the shared data of saint_kitts_and_nevis_plate; do not edit."""
+from plate_core import load_country
+from .saint_kitts_and_nevis_validators import SaintKittsAndNevisValidator
+
+saint_kitts_and_nevis = load_country(r'''{"package":"saint_kitts_and_nevis_plate","alphabets":{"latin.digits":["latin.digits",[["0","9"]],"typed",true],"latin.upper":["latin.upper",[["A","Z"]]]},"countries":{"SaintKittsAndNevisCountry.saint_kitts_and_nevis":["kn",4279636508,4293584074,1.75]},"themes":{"SaintKittsAndNevisThemes.private":[4279636508,4293584074,0,0.03,4284110176]},"specs":[["kn.private","SaintKittsAndNevisCountry.saint_kitts_and_nevis",300,66,[["latin.upper",[12,0,65.5,66],2,1,0,null,"letters"],["latin.digits",[116.5,0,138,66],4,1,0,null,"digits"]],[["ST. CHRISTOPHER & NEVIS ST. KITTS",[96,0.5,110,8],6]]]],"resolvers":{},"assets":[],"gallery":[["kn.private","Regular","kn.private",["P","884"],"Saint Kitts and Nevis","Private",null,"SaintKittsAndNevisThemes.private","SaintKittsAndNevisCountry.saint_kitts_and_nevis","SaintKittsAndNevisValidator"]]}''', {}, {'SaintKittsAndNevisValidator': SaintKittsAndNevisValidator})

@@ -1,0 +1,5 @@
+"""Generated from the shared data of rwanda_plate; do not edit."""
+from plate_core import load_country
+from .rwanda_validators import RwandaValidator
+
+rwanda = load_country(r'''{"package":"rwanda_plate","alphabets":{"latin.upper":["latin.upper",[["A","Z"]]],"rw.serial":["rw.serial",[["A","Z"],["0","9"]]]},"countries":{"RwandaCountry.rwanda":["rw",4294967295,4278190080,1.75]},"themes":{"RwandaThemes.front":[4294967295,4278190080,0.03,0.06],"RwandaThemes.back":[4294953235,4278190080,0.03,0.06]},"specs":[["rw.plate","RwandaCountry.rwanda",520,110,[["latin.upper",[65.5,4.4,148.1,100],3,3,6.1667,null,"register"],["rw.serial",[261,4.4,195.9,100],4,4,5.775,null,"serial"]]]],"resolvers":{},"assets":[],"gallery":[["rw.front","Front · black on white","rw.plate",["RAB","123C"],"Rwanda","Front and back",null,"RwandaThemes.front","RwandaCountry.rwanda","RwandaValidator"],["rw.back","Back · black on yellow","rw.plate",["RAB","175C"],"Rwanda","Front and back",null,"RwandaThemes.back","RwandaCountry.rwanda","RwandaValidator"]]}''', {}, {'RwandaValidator': RwandaValidator})

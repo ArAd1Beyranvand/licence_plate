@@ -1,0 +1,5 @@
+"""Generated from the shared data of suriname_plate; do not edit."""
+from plate_core import load_country
+from .suriname_validators import SurinameValidator
+
+suriname = load_country(r'''{"package":"suriname_plate","alphabets":{"latin.digits":["latin.digits",[["0","9"]],"typed",true],"latin.upper":["latin.upper",[["A","Z"]]]},"countries":{"SurinameCountry.suriname":["sr",4294955264,4280032798,1.75]},"themes":{"SurinameThemes.private":[4294955264,4280032798,0.02,0.04]},"specs":[["sr.private","SurinameCountry.suriname",300,152,[["latin.upper",[16,21,110,110],2,2,7.48,null,"letters"],["latin.digits",[142,21,142,110],4,4,0,null,"serial"]]]],"resolvers":{},"assets":[],"gallery":[["sr.private","Private","sr.private",["PA","1234"],"Suriname","Plates",null,"SurinameThemes.private","SurinameCountry.suriname","SurinameValidator"]]}''', {}, {'SurinameValidator': SurinameValidator})

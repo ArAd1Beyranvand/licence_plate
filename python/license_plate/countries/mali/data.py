@@ -1,0 +1,5 @@
+"""Generated from the shared data of mali_plate; do not edit."""
+from plate_core import load_country
+from .mali_validators import MaliValidator
+
+mali = load_country(r'''{"package":"mali_plate","alphabets":{"latin.digits":["latin.digits",[["0","9"]],"typed",true],"ml.letters":["ml.letters",[["A","Z"]]]},"countries":{"MaliCountry.mali":["ml",0,0,2]},"themes":{"MaliThemes.standard":[4294967295,4278190080,0.04,0.12,1717986918]},"specs":[["ml.standard","MaliCountry.mali",520,110,[["ml.letters",[45,30,90,50],2,2,23.4,null,"prefix"],["latin.digits",[245,30,180,50],4,4,23.4,null,"number"],["ml.letters",[430,30,90,50],2,2,23.4,null,"suffix"]]]],"resolvers":{},"assets":[],"gallery":[["ml.standard","Standard plate","ml.standard",["AB","1234","MD"],"Mali","Current series — 520 × 110",null,"MaliThemes.standard","MaliCountry.mali","MaliValidator"]]}''', {}, {'MaliValidator': MaliValidator})

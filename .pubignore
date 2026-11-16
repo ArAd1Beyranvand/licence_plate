@@ -2,3 +2,13 @@
 CLAUDE.md
 .idea/
 *.iml
+example/linux/
+example/build/
+example/.dart_tool/
+example/pubspec.lock
+example/.metadata
+example/.gitignore
+example/README.md
+python/
+kotlin/
+typescript/
