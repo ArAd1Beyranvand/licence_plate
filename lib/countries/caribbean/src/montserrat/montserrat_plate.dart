@@ -8,4 +8,5 @@ export 'src/montserrat_country.dart';
 export 'src/montserrat_plates.dart';
 export 'src/montserrat_themes.dart';
 export 'src/montserrat_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MontserratAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MontserratAlphabets;

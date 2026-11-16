@@ -3,7 +3,8 @@
 /// validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show FinlandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show FinlandAlphabets;
 
 export 'src/finland_colors.dart';
 export 'src/finland_country.dart';

@@ -9,4 +9,5 @@ export 'src/pakistan_plates.dart';
 export 'src/pakistan_serial_generator.dart';
 export 'src/pakistan_themes.dart';
 export 'src/pakistan_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show PakistanAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show PakistanAlphabets;

@@ -1,1 +1,2 @@
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BoliviaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BoliviaAlphabets;

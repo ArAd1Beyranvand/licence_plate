@@ -4,7 +4,8 @@
 /// validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show LatviaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LatviaAlphabets;
 
 export 'src/latvia_colors.dart';
 export 'src/latvia_country.dart';

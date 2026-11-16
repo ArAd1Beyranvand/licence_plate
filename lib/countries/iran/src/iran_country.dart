@@ -10,6 +10,9 @@ abstract final class IranCountry {
     panelColor: IranColors.panelBlue,
     panelTextColor: Color(0xFFFFFFFF),
     flagAspectRatio: 7 / 4,
-    flag: SvgPlateAsset('assets/countries/iran/flags/Flag_of_Iran.svg', package: 'license_plate'),
+    flag: SvgPlateAsset(
+      'assets/countries/iran/flags/Flag_of_Iran.svg',
+      package: 'license_plate',
+    ),
   );
 }

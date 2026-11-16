@@ -11,4 +11,5 @@ export 'src/iceland_plates.dart';
 export 'src/iceland_serial_generator.dart';
 export 'src/iceland_themes.dart';
 export 'src/iceland_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show IcelandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show IcelandAlphabets;

@@ -4,7 +4,8 @@
 /// with themes, Latin alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MadagascarAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MadagascarAlphabets;
 export 'src/madagascar_colors.dart';
 export 'src/madagascar_country.dart';
 export 'src/madagascar_plates.dart';

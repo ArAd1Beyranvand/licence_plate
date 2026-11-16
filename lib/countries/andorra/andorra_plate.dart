@@ -4,7 +4,8 @@
 /// the red-boxed temporary plate, one theme each, and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show AndorraAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show AndorraAlphabets;
 
 export 'src/andorra_colors.dart';
 export 'src/andorra_country.dart';

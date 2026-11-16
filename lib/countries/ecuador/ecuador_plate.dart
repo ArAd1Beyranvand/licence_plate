@@ -3,7 +3,8 @@
 /// an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show EcuadorAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show EcuadorAlphabets;
 
 export 'src/ecuador_colors.dart';
 export 'src/ecuador_country.dart';

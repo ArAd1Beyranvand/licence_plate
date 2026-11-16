@@ -10,4 +10,5 @@ export 'src/melilla_country.dart';
 export 'src/melilla_plates.dart';
 export 'src/melilla_themes.dart';
 export 'src/melilla_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MelillaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MelillaAlphabets;

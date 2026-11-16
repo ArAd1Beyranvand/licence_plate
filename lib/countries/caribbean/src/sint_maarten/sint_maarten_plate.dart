@@ -8,4 +8,5 @@ export 'src/sint_maarten_country.dart';
 export 'src/sint_maarten_themes.dart';
 export 'src/sint_maarten_plates.dart';
 export 'src/sint_maarten_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SintMaartenAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SintMaartenAlphabets;

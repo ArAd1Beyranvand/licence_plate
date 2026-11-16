@@ -9,7 +9,8 @@
 /// proportioned from photographs.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show RiyadhAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show RiyadhAlphabets;
 export 'src/common/yemen_alphabets.dart';
 export 'src/common/yemen_colors.dart';
 export 'src/common/yemen_country.dart';

@@ -4,7 +4,8 @@
 /// on black, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show TuvaluAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show TuvaluAlphabets;
 
 export 'src/tuvalu_colors.dart';
 export 'src/tuvalu_country.dart';

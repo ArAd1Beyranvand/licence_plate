@@ -10,4 +10,5 @@ export 'src/timor_leste_country.dart';
 export 'src/timor_leste_plates.dart';
 export 'src/timor_leste_themes.dart';
 export 'src/timor_leste_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show TimorLesteAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show TimorLesteAlphabets;

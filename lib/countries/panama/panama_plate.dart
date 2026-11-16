@@ -9,4 +9,5 @@ export 'src/panama_themes.dart';
 export 'src/panama_plates.dart';
 export 'src/panama_validators.dart';
 export 'src/panama_serial_generator.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show PanamaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show PanamaAlphabets;

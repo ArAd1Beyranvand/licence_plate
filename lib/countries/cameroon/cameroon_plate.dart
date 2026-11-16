@@ -5,7 +5,8 @@
 /// validators.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CameroonAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CameroonAlphabets;
 
 export 'src/cameroon_colors.dart';
 export 'src/cameroon_country.dart';

@@ -4,7 +4,8 @@
 /// alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BurkinaFasoAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BurkinaFasoAlphabets;
 export 'src/burkina_faso_colors.dart';
 export 'src/burkina_faso_country.dart';
 export 'src/burkina_faso_plates.dart';

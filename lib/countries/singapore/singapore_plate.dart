@@ -7,7 +7,8 @@
 /// background, and a two-line geometry carries motorcycles and plant.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SingaporeAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SingaporeAlphabets;
 export 'src/singapore_colors.dart';
 export 'src/singapore_country.dart';
 export 'src/singapore_plates.dart';

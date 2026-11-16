@@ -5,7 +5,8 @@
 /// EULEX, with themes, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show KosovoAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show KosovoAlphabets;
 
 export 'src/kosovo_colors.dart';
 export 'src/kosovo_country.dart';

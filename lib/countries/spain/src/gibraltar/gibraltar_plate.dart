@@ -8,4 +8,5 @@ export 'src/gibraltar_country.dart';
 export 'src/gibraltar_themes.dart';
 export 'src/gibraltar_plates.dart';
 export 'src/gibraltar_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GibraltarAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GibraltarAlphabets;

@@ -4,7 +4,8 @@
 /// themes and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SaintLuciaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SaintLuciaAlphabets;
 
 export 'src/saint_lucia_colors.dart';
 export 'src/saint_lucia_country.dart';

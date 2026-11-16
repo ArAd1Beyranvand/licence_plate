@@ -4,7 +4,8 @@
 /// with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show NetherlandsAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show NetherlandsAlphabets;
 
 export 'src/netherlands_colors.dart';
 export 'src/netherlands_country.dart';

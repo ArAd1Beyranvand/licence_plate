@@ -4,7 +4,8 @@
 /// themes, a Thai alphabet and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show ThailandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show ThailandAlphabets;
 
 export 'src/thailand_colors.dart';
 export 'src/thailand_country.dart';

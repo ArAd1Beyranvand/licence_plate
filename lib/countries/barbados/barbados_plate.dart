@@ -4,7 +4,8 @@
 /// digits; two themes and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BarbadosAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BarbadosAlphabets;
 
 export 'src/barbados_colors.dart';
 export 'src/barbados_country.dart';

@@ -3,7 +3,8 @@
 /// an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GambiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GambiaAlphabets;
 
 export 'src/gambia_colors.dart';
 export 'src/gambia_country.dart';

@@ -3,7 +3,8 @@
 /// The SIV `AA-000-AA` plate on the European 520×110 field with the département `976`, one theme, French alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MayotteAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MayotteAlphabets;
 
 export 'src/mayotte_colors.dart';
 export 'src/mayotte_country.dart';

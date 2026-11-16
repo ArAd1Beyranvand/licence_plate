@@ -2,7 +2,8 @@
 /// black-on-yellow `ABC 123` plate, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GrenadaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GrenadaAlphabets;
 
 export 'src/grenada_colors.dart';
 export 'src/grenada_country.dart';

@@ -4,7 +4,8 @@
 /// advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MauritiusAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MauritiusAlphabets;
 export 'src/mauritius_colors.dart';
 export 'src/mauritius_country.dart';
 export 'src/mauritius_plates.dart';

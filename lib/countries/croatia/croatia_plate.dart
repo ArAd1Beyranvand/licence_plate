@@ -11,4 +11,5 @@ export 'src/croatia_plates.dart';
 export 'src/croatia_regions.dart';
 export 'src/croatia_themes.dart';
 export 'src/croatia_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CroatiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CroatiaAlphabets;

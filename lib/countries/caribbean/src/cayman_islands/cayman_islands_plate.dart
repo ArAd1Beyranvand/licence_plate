@@ -3,7 +3,8 @@
 /// and taxi red, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CaymanIslandsAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CaymanIslandsAlphabets;
 
 export 'src/cayman_islands_colors.dart';
 export 'src/cayman_islands_country.dart';

@@ -3,7 +3,8 @@
 /// advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show UruguayAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show UruguayAlphabets;
 export 'src/uruguay_colors.dart';
 export 'src/uruguay_country.dart';
 export 'src/uruguay_plates.dart';

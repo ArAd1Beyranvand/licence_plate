@@ -6,4 +6,5 @@ export 'src/south_sudan_country.dart';
 export 'src/south_sudan_themes.dart';
 export 'src/south_sudan_plates.dart';
 export 'src/south_sudan_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SouthSudanAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SouthSudanAlphabets;

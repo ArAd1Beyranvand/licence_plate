@@ -4,7 +4,8 @@
 /// validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show ElSalvadorAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show ElSalvadorAlphabets;
 
 export 'src/el_salvador_colors.dart';
 export 'src/el_salvador_country.dart';

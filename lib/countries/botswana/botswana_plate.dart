@@ -9,4 +9,5 @@ export 'src/botswana_country.dart';
 export 'src/botswana_plates.dart';
 export 'src/botswana_themes.dart';
 export 'src/botswana_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BotswanaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BotswanaAlphabets;

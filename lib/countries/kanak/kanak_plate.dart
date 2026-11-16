@@ -3,7 +3,8 @@
 /// advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show NewCaledoniaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show NewCaledoniaAlphabets;
 
 export 'src/new_caledonia_colors.dart';
 export 'src/new_caledonia_country.dart';

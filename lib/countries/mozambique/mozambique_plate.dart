@@ -4,7 +4,8 @@
 /// each with its own theme, the Mozambican alphabets and advisory validators.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MozambiqueAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MozambiqueAlphabets;
 export 'src/mozambique_colors.dart';
 export 'src/mozambique_country.dart';
 export 'src/mozambique_plates.dart';

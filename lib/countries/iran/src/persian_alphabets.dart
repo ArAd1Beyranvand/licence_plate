@@ -3,7 +3,8 @@ import 'package:license_plate/core/plate_core.dart';
 
 import 'iran_usage.dart';
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show PersianAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show PersianAlphabets;
 
 abstract final class IranUsageAlphabets {
   /// The alphabet of [usage]'s series-letter slot, or null for a class with no

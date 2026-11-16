@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:license_plate/alphabet/plate_alphabet.dart' show LuxembourgAlphabets;
+import 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LuxembourgAlphabets;
 import 'package:license_plate/core/plate_core.dart';
 
 import 'luxembourg_colors.dart';

@@ -6,7 +6,8 @@
 /// validator that checks each field.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GreeceAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GreeceAlphabets;
 
 export 'src/greece_colors.dart';
 export 'src/greece_country.dart';

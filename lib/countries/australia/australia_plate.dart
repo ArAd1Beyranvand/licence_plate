@@ -6,7 +6,8 @@
 /// serial generator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show AustraliaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show AustraliaAlphabets;
 
 export 'src/australia_colors.dart';
 export 'src/australia_country.dart';

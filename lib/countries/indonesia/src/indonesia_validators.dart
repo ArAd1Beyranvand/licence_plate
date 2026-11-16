@@ -1,4 +1,5 @@
-import 'package:license_plate/alphabet/plate_alphabet.dart' show IndonesiaAlphabets;
+import 'package:license_plate/alphabet/plate_alphabet.dart'
+    show IndonesiaAlphabets;
 import 'package:license_plate/core/plate_core.dart';
 
 /// The area codes the article lists as in use, by police region. Non-motorised

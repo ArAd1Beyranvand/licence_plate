@@ -4,7 +4,8 @@
 /// three-line plates, with themes, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show UkraineAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show UkraineAlphabets;
 
 export 'src/ukraine_colors.dart';
 export 'src/ukraine_country.dart';

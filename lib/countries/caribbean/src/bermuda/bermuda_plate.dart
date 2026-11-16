@@ -11,4 +11,5 @@ export 'src/bermuda_plates.dart';
 export 'src/bermuda_serial_generator.dart';
 export 'src/bermuda_themes.dart';
 export 'src/bermuda_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BermudaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BermudaAlphabets;

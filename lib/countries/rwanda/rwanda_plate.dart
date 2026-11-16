@@ -2,7 +2,8 @@
 /// or yellow (back), a register `RXX` and a serial `###X`.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show RwandaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show RwandaAlphabets;
 
 export 'src/rwanda_colors.dart';
 export 'src/rwanda_country.dart';

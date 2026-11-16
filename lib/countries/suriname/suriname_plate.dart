@@ -4,7 +4,8 @@
 /// digits), one theme, and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SurinameAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SurinameAlphabets;
 
 export 'src/suriname_colors.dart';
 export 'src/suriname_country.dart';

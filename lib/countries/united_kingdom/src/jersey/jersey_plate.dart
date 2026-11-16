@@ -8,4 +8,5 @@ export 'src/jersey_country.dart';
 export 'src/jersey_themes.dart';
 export 'src/jersey_plates.dart';
 export 'src/jersey_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show JerseyAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show JerseyAlphabets;

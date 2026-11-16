@@ -4,7 +4,8 @@
 /// themes, alphabets and advisory validators.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MyanmarAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MyanmarAlphabets;
 export 'src/myanmar_colors.dart';
 export 'src/myanmar_country.dart';
 export 'src/myanmar_plates.dart';

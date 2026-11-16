@@ -4,7 +4,8 @@
 /// theme each, Latin alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show AngolaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show AngolaAlphabets;
 
 export 'src/angola_colors.dart';
 export 'src/angola_country.dart';

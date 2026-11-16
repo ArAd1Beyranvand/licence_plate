@@ -4,7 +4,8 @@
 /// themes, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show TanzaniaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show TanzaniaAlphabets;
 
 export 'src/tanzania_colors.dart';
 export 'src/tanzania_country.dart';

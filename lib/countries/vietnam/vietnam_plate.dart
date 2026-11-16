@@ -7,7 +7,8 @@
 /// refused.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show VietnamAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show VietnamAlphabets;
 
 export 'src/vietnam_colors.dart';
 export 'src/vietnam_country.dart';

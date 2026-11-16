@@ -3,7 +3,8 @@
 /// trailer and moped plates, with themes, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show AustriaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show AustriaAlphabets;
 
 export 'src/austria_colors.dart';
 export 'src/austria_country.dart';

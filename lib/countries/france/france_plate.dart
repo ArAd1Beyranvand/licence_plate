@@ -3,7 +3,8 @@
 /// validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show FranceAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show FranceAlphabets;
 
 export 'src/france_colors.dart';
 export 'src/france_country.dart';

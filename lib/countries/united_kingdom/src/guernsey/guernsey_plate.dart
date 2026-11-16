@@ -8,4 +8,5 @@ export 'src/guernsey_country.dart';
 export 'src/guernsey_themes.dart';
 export 'src/guernsey_plates.dart';
 export 'src/guernsey_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GuernseyAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GuernseyAlphabets;

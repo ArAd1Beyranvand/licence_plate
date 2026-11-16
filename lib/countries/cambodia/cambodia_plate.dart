@@ -5,7 +5,8 @@
 /// advisory validator per design. Colour is the theme; shape is the spec.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CambodiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CambodiaAlphabets;
 
 export 'src/cambodia_colors.dart';
 export 'src/cambodia_country.dart';

@@ -50,11 +50,8 @@ abstract final class _Layout {
 /// One element of a serial: a field (one `PlateSlot`), a printed dash, or an
 /// unprinted gap between fields.
 class _Item {
-  const _Item.field(
-    PlateAlphabet this.alphabet,
-    int this.length,
-    String this.key,
-  ) : weight = length * 1.0,
+  const _Item.field(this.alphabet, this.length, this.key)
+    : weight = length * 1.0,
       text = null;
   const _Item.dash()
     : alphabet = null,

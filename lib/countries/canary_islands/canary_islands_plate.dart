@@ -5,7 +5,8 @@
 /// alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CanaryIslandsAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CanaryIslandsAlphabets;
 
 export 'src/canary_islands_colors.dart';
 export 'src/canary_islands_country.dart';

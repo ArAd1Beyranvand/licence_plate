@@ -10,4 +10,5 @@ export 'src/costa_rica_country.dart';
 export 'src/costa_rica_plates.dart';
 export 'src/costa_rica_themes.dart';
 export 'src/costa_rica_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CostaRicaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CostaRicaAlphabets;

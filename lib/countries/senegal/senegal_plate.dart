@@ -4,7 +4,8 @@
 /// motorcycle).
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SenegalAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SenegalAlphabets;
 
 export 'src/senegal_colors.dart';
 export 'src/senegal_country.dart';

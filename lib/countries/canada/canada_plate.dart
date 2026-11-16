@@ -3,7 +3,8 @@
 /// advisory validators.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CanadaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CanadaAlphabets;
 
 export 'src/canada_colors.dart';
 export 'src/canada_country.dart';

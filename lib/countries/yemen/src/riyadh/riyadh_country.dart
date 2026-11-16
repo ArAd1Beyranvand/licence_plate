@@ -27,6 +27,9 @@ PlateCountry _strip(Color color) => PlateCountry(
   code: 'ye',
   panelColor: color,
   panelTextColor: RiyadhColors.ink,
-  flag: const SvgPlateAsset('assets/countries/yemen/riyadh/emblem.svg', package: 'license_plate'),
+  flag: const SvgPlateAsset(
+    'assets/countries/yemen/riyadh/emblem.svg',
+    package: 'license_plate',
+  ),
   flagAspectRatio: 610 / 662.42,
 );

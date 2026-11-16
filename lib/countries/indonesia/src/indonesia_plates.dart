@@ -173,7 +173,10 @@ abstract final class IndonesiaPlates {
   static final PlateSpec police = _policeSpec();
 
   static PlateDecal _asset(String file, PlateBox box) => PlateDecal(
-    image: AssetImage('assets/countries/indonesia/$file', package: 'license_plate'),
+    image: AssetImage(
+      'assets/countries/indonesia/$file',
+      package: 'license_plate',
+    ),
     box: box,
   );
 

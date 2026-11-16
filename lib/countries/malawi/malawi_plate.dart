@@ -8,4 +8,5 @@ export 'src/malawi_country.dart';
 export 'src/malawi_themes.dart';
 export 'src/malawi_plates.dart';
 export 'src/malawi_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MalawiAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MalawiAlphabets;

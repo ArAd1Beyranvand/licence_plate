@@ -8,4 +8,5 @@ export 'src/saba_island_country.dart';
 export 'src/saba_island_themes.dart';
 export 'src/saba_island_plates.dart';
 export 'src/saba_island_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SabaIslandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SabaIslandAlphabets;

@@ -4,7 +4,8 @@
 /// Cyrillic alphabet and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MongoliaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MongoliaAlphabets;
 export 'src/mongolia_colors.dart';
 export 'src/mongolia_country.dart';
 export 'src/mongolia_plates.dart';

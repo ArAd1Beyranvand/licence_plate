@@ -2,7 +2,8 @@
 /// private-car plate (`1234 AB`), with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show JamaicaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show JamaicaAlphabets;
 
 export 'src/jamaica_colors.dart';
 export 'src/jamaica_country.dart';

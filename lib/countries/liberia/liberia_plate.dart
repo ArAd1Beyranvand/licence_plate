@@ -8,4 +8,5 @@ export 'src/liberia_country.dart';
 export 'src/liberia_themes.dart';
 export 'src/liberia_plates.dart';
 export 'src/liberia_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show LiberiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LiberiaAlphabets;

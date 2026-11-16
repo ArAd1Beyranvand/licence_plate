@@ -2,7 +2,8 @@
 /// plates, federal tourism, an antique and the 1992 series.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MexicoAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MexicoAlphabets;
 
 export 'src/mexico_colors.dart';
 export 'src/mexico_country.dart';

@@ -8,4 +8,5 @@ export 'src/czech_republic_country.dart';
 export 'src/czech_republic_themes.dart';
 export 'src/czech_republic_plates.dart';
 export 'src/czech_republic_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CzechRepublicAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CzechRepublicAlphabets;

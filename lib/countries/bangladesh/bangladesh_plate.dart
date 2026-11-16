@@ -4,7 +4,8 @@
 /// (commercial) and white on green (electric).
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BangladeshAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BangladeshAlphabets;
 
 export 'src/bangladesh_colors.dart';
 export 'src/bangladesh_country.dart';

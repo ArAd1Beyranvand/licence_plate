@@ -10,4 +10,5 @@ export 'src/sri_lanka_plates.dart';
 export 'src/sri_lanka_regions.dart';
 export 'src/sri_lanka_themes.dart';
 export 'src/sri_lanka_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SriLankaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SriLankaAlphabets;

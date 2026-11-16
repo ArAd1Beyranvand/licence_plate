@@ -8,4 +8,5 @@ export 'src/moldova_country.dart';
 export 'src/moldova_themes.dart';
 export 'src/moldova_plates.dart';
 export 'src/moldova_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MoldovaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MoldovaAlphabets;

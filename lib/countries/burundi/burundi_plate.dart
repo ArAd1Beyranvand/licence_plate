@@ -4,7 +4,8 @@
 /// or yellow (rear), with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BurundiAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BurundiAlphabets;
 
 export 'src/burundi_colors.dart';
 export 'src/burundi_country.dart';

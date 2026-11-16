@@ -2,7 +2,8 @@
 /// plates for `plate_core`, with advisory validators.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BhutanAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BhutanAlphabets;
 
 export 'src/bhutan_colors.dart';
 export 'src/bhutan_country.dart';

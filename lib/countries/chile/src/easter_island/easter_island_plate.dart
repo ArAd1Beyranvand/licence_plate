@@ -8,4 +8,5 @@ export 'src/easter_island_country.dart';
 export 'src/easter_island_plates.dart';
 export 'src/easter_island_themes.dart';
 export 'src/easter_island_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show EasterIslandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show EasterIslandAlphabets;

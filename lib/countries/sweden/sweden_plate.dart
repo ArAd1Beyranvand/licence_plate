@@ -5,7 +5,8 @@
 /// alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SwedenAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SwedenAlphabets;
 
 export 'src/sweden_colors.dart';
 export 'src/sweden_country.dart';

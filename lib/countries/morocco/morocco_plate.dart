@@ -11,4 +11,5 @@ export 'src/morocco_plates.dart';
 export 'src/morocco_serial_generator.dart';
 export 'src/morocco_themes.dart';
 export 'src/morocco_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MoroccoAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MoroccoAlphabets;

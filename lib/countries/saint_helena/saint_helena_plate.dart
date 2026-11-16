@@ -8,6 +8,7 @@ export 'src/saint_helena_country.dart';
 export 'src/saint_helena_themes.dart';
 export 'src/saint_helena_plates.dart';
 export 'src/saint_helena_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SaintHelenaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SaintHelenaAlphabets;
 export 'src/ascension_island/ascension_island_plate.dart';
 export 'src/tristan_da_cunha/tristan_da_cunha_plate.dart';

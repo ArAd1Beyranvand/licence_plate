@@ -8,4 +8,5 @@ export 'src/luxembourg_country.dart';
 export 'src/luxembourg_plates.dart';
 export 'src/luxembourg_themes.dart';
 export 'src/luxembourg_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show LuxembourgAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LuxembourgAlphabets;

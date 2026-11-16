@@ -9,4 +9,5 @@ export 'src/bonaire_country.dart';
 export 'src/bonaire_themes.dart';
 export 'src/bonaire_plates.dart';
 export 'src/bonaire_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BonaireAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BonaireAlphabets;

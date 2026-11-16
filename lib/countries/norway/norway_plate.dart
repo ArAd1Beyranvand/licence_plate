@@ -10,4 +10,5 @@ export 'src/norway_plates.dart';
 export 'src/norway_regions.dart';
 export 'src/norway_themes.dart';
 export 'src/norway_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show NorwayAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show NorwayAlphabets;

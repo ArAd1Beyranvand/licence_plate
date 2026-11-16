@@ -10,5 +10,6 @@ export 'src/guyana_plates.dart';
 export 'src/guyana_serial_generator.dart';
 export 'src/guyana_themes.dart';
 export 'src/guyana_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GuyanaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GuyanaAlphabets;
 export 'src/french_guiana/french_guiana_plate.dart';

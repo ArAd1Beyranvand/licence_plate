@@ -3,7 +3,8 @@
 /// plate and the protocol plates for embassies and foreign affairs.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show TaiwanAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show TaiwanAlphabets;
 
 export 'src/taiwan_colors.dart';
 export 'src/taiwan_country.dart';

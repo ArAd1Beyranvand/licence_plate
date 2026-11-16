@@ -12,8 +12,9 @@ class TaiwanValidator extends GatedPlateValidator {
     for (var i = 0; i < spec.slots.length; i++) {
       final PlateSlot slot = spec.slots[i];
       final String v = entry.group(spec.textGroups[i].key!);
-      if (!slot.accepts(v) || v.length != slot.length)
+      if (!slot.accepts(v) || v.length != slot.length) {
         return const PlateValidation.invalid(reasonField);
+      }
     }
     return const PlateValidation.valid();
   }

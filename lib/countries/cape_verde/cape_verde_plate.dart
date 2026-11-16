@@ -5,7 +5,8 @@
 /// alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CapeVerdeAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CapeVerdeAlphabets;
 
 export 'src/cape_verde_colors.dart';
 export 'src/cape_verde_country.dart';

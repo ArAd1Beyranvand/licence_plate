@@ -7,4 +7,5 @@ export 'src/guinea_plates.dart';
 export 'src/guinea_regions.dart';
 export 'src/guinea_themes.dart';
 export 'src/guinea_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GuineaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GuineaAlphabets;

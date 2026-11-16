@@ -81,13 +81,19 @@ enum AfghanistanPanelInk {
   /// Black line art, for white, yellow and blue fields.
   dark(
     'af',
-    SvgPlateAsset('assets/countries/iranshahr/emblems/Darul_Aman_dark.svg', package: _package),
+    SvgPlateAsset(
+      'assets/countries/iranshahr/emblems/Darul_Aman_dark.svg',
+      package: _package,
+    ),
   ),
 
   /// White line art, for the diplomatic red and governmental black fields.
   light(
     'af.light',
-    SvgPlateAsset('assets/countries/iranshahr/emblems/Darul_Aman_light.svg', package: _package),
+    SvgPlateAsset(
+      'assets/countries/iranshahr/emblems/Darul_Aman_light.svg',
+      package: _package,
+    ),
   );
 
   const AfghanistanPanelInk(this._code, this._emblem);

@@ -12,4 +12,5 @@ export 'src/poland_plates.dart';
 export 'src/poland_serial_generator.dart';
 export 'src/poland_themes.dart';
 export 'src/poland_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show PolandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show PolandAlphabets;

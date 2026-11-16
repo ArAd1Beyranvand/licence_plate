@@ -4,7 +4,8 @@
 /// advisory validators.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show KyrgyzstanAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show KyrgyzstanAlphabets;
 
 export 'src/kyrgyzstan_colors.dart';
 export 'src/kyrgyzstan_country.dart';

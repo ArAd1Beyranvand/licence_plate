@@ -6,7 +6,8 @@
 /// `PlateCountry`; usage classes are data in `JordanUsage`.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show JordanAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show JordanAlphabets;
 
 export 'src/jordan_colors.dart';
 export 'src/jordan_country.dart';

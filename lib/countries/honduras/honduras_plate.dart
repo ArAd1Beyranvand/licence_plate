@@ -8,4 +8,5 @@ export 'src/honduras_country.dart';
 export 'src/honduras_themes.dart';
 export 'src/honduras_plates.dart';
 export 'src/honduras_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show HondurasAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show HondurasAlphabets;

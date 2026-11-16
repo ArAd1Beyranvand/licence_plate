@@ -4,7 +4,8 @@
 /// advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show TransnistriaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show TransnistriaAlphabets;
 
 export 'src/transnistria_colors.dart';
 export 'src/transnistria_country.dart';

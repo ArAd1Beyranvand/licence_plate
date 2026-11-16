@@ -11,4 +11,5 @@ export 'src/djibouti_plates.dart';
 export 'src/djibouti_serial_generator.dart';
 export 'src/djibouti_themes.dart';
 export 'src/djibouti_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show DjiboutiAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show DjiboutiAlphabets;

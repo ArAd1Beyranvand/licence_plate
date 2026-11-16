@@ -5,7 +5,8 @@
 /// with the colour in a theme, and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show UnitedKingdomAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show UnitedKingdomAlphabets;
 
 export 'src/united_kingdom_colors.dart';
 export 'src/united_kingdom_country.dart';

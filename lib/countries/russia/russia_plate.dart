@@ -3,7 +3,8 @@
 /// advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show RussiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show RussiaAlphabets;
 
 export 'src/abkhazia/abkhazia_plate.dart';
 export 'src/belarus/belarus_plate.dart';

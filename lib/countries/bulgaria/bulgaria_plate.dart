@@ -12,4 +12,5 @@ export 'src/bulgaria_plates.dart';
 export 'src/bulgaria_regions.dart';
 export 'src/bulgaria_themes.dart';
 export 'src/bulgaria_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BulgariaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BulgariaAlphabets;

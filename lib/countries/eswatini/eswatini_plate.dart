@@ -8,4 +8,5 @@ export 'src/eswatini_country.dart';
 export 'src/eswatini_themes.dart';
 export 'src/eswatini_plates.dart';
 export 'src/eswatini_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show EswatiniAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show EswatiniAlphabets;

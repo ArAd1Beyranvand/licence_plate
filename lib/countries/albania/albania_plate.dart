@@ -5,7 +5,8 @@
 /// and the motorcycle plate, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show AlbaniaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show AlbaniaAlphabets;
 
 export 'src/albania_colors.dart';
 export 'src/albania_country.dart';

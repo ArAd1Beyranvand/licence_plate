@@ -4,7 +4,8 @@
 /// variants, eight liveries, and an advisory validator per category.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show LiechtensteinAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LiechtensteinAlphabets;
 export 'src/liechtenstein_colors.dart';
 export 'src/liechtenstein_country.dart';
 export 'src/liechtenstein_plates.dart';

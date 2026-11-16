@@ -14,7 +14,10 @@ abstract final class LebanonCountry {
     code: 'lb',
     panelColor: LebanonColors.band,
     panelTextColor: LebanonColors.bandInk,
-    flag: SvgPlateAsset('assets/countries/lebanon/cedar.svg', package: 'license_plate'),
+    flag: SvgPlateAsset(
+      'assets/countries/lebanon/cedar.svg',
+      package: 'license_plate',
+    ),
     flagAspectRatio: 1.0,
   );
 
@@ -23,7 +26,10 @@ abstract final class LebanonCountry {
     captionLines: <String>['خصوصي'],
     panelColor: LebanonColors.band,
     panelTextColor: LebanonColors.bandInk,
-    flag: SvgPlateAsset('assets/countries/lebanon/cedar.svg', package: 'license_plate'),
+    flag: SvgPlateAsset(
+      'assets/countries/lebanon/cedar.svg',
+      package: 'license_plate',
+    ),
     flagAspectRatio: 1.0,
   );
 
@@ -32,7 +38,10 @@ abstract final class LebanonCountry {
     captionLines: <String>['مؤسسات'],
     panelColor: LebanonColors.band,
     panelTextColor: LebanonColors.bandInk,
-    flag: SvgPlateAsset('assets/countries/lebanon/cedar.svg', package: 'license_plate'),
+    flag: SvgPlateAsset(
+      'assets/countries/lebanon/cedar.svg',
+      package: 'license_plate',
+    ),
     flagAspectRatio: 1.0,
   );
 

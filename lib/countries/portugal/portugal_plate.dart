@@ -3,7 +3,8 @@
 /// plates, with themes and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show PortugalAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show PortugalAlphabets;
 
 export 'src/portugal_colors.dart';
 export 'src/portugal_country.dart';

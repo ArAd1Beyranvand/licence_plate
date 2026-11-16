@@ -2,7 +2,8 @@
 /// plate with its colours, theme, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SouthOssetiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SouthOssetiaAlphabets;
 
 export 'src/south_ossetia_colors.dart';
 export 'src/south_ossetia_country.dart';

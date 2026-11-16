@@ -173,7 +173,10 @@ abstract final class AlgeriaPlates {
     ],
     decals: const <PlateDecal>[
       PlateDecal(
-        image: AssetImage('assets/countries/algeria/dz_roundel.png', package: 'license_plate'),
+        image: AssetImage(
+          'assets/countries/algeria/dz_roundel.png',
+          package: 'license_plate',
+        ),
         box: PlateBox(
           _Layout.roundelLeft,
           _Layout.roundelTop,

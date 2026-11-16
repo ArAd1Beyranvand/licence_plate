@@ -8,4 +8,5 @@ export 'src/new_zealand_country.dart';
 export 'src/new_zealand_plates.dart';
 export 'src/new_zealand_themes.dart';
 export 'src/new_zealand_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show NewZealandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show NewZealandAlphabets;

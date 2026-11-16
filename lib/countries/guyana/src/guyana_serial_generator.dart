@@ -18,8 +18,8 @@ abstract final class GuyanaSerialGenerator {
           List<int>.generate(n - 1, (_) => 0x41 + rnd.nextInt(26)),
         );
     String number(int n) =>
-        '${1 + rnd.nextInt(9)}' +
-        List<String>.generate(n - 1, (_) => '${rnd.nextInt(10)}').join();
+        '${1 + rnd.nextInt(9)}'
+        '${List<String>.generate(n - 1, (_) => '${rnd.nextInt(10)}').join()}';
     return <String?>[
       for (final PlateSlot slot in spec.slots)
         slot.alphabet.isNumeric

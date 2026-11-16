@@ -11,4 +11,5 @@ export 'src/lithuania_plates.dart';
 export 'src/lithuania_serial_generator.dart';
 export 'src/lithuania_themes.dart';
 export 'src/lithuania_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show LithuaniaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LithuaniaAlphabets;

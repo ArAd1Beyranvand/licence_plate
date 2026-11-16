@@ -4,7 +4,8 @@
 /// the lozenge badge; an advisory validator for the four-character serial.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show MonacoAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show MonacoAlphabets;
 export 'src/monaco_colors.dart';
 export 'src/monaco_country.dart';
 export 'src/monaco_plates.dart';

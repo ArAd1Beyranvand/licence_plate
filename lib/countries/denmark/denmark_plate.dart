@@ -3,7 +3,8 @@
 /// with and without the EU stripe.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show DenmarkAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show DenmarkAlphabets;
 
 export 'src/denmark_colors.dart';
 export 'src/denmark_country.dart';

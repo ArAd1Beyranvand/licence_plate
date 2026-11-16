@@ -4,7 +4,8 @@
 /// white and red on white, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show ZimbabweAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show ZimbabweAlphabets;
 
 export 'src/zimbabwe_colors.dart';
 export 'src/zimbabwe_country.dart';

@@ -11,4 +11,5 @@ export 'src/south_korea/south_korea_country.dart';
 export 'src/south_korea/south_korea_plates.dart';
 export 'src/south_korea/south_korea_themes.dart';
 export 'src/south_korea/south_korea_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SouthKoreaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SouthKoreaAlphabets;

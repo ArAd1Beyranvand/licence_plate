@@ -16,6 +16,9 @@ abstract final class AlbaniaCountry {
     panelColor: AlbaniaColors.blue,
     panelTextColor: AlbaniaColors.white,
     flagAspectRatio: 286 / 306,
-    flag: SvgPlateAsset('assets/countries/albania/albania_eagle.svg', package: 'license_plate'),
+    flag: SvgPlateAsset(
+      'assets/countries/albania/albania_eagle.svg',
+      package: 'license_plate',
+    ),
   );
 }

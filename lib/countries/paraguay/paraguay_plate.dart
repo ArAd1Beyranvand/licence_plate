@@ -2,7 +2,8 @@
 /// plate, black on white under a blue country band, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show ParaguayAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show ParaguayAlphabets;
 
 export 'src/paraguay_colors.dart';
 export 'src/paraguay_country.dart';

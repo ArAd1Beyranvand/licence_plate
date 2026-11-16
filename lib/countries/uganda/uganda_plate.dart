@@ -8,4 +8,5 @@ export 'src/uganda_country.dart';
 export 'src/uganda_plates.dart';
 export 'src/uganda_themes.dart';
 export 'src/uganda_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show UgandaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show UgandaAlphabets;

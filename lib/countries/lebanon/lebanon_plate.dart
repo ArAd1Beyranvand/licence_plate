@@ -8,7 +8,8 @@
 /// `// CALIBRATE` come from photographs, not standards.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show LebanonAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show LebanonAlphabets;
 export 'src/lebanon_alphabets.dart';
 export 'src/lebanon_colors.dart';
 export 'src/lebanon_country.dart';

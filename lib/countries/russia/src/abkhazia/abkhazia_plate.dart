@@ -2,7 +2,8 @@
 /// and the diplomatic plate, with themes, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show AbkhaziaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show AbkhaziaAlphabets;
 
 export 'src/abkhazia_colors.dart';
 export 'src/abkhazia_country.dart';

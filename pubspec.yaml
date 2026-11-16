@@ -1,7 +1,14 @@
 name: license_plate
 description: "Every licence plate in one Flutter package: the plate_core engine, alphabets, an on-screen keypad and 182 countries' plates."
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/ArAd1Beyranvand/licence_plate
+issue_tracker: https://github.com/ArAd1Beyranvand/licence_plate/issues
+topics:
+  - license-plate
+  - vehicle
+  - widget
+  - flags
+  - svg
 
 environment:
   sdk: '>=3.10.0 <4.0.0'

@@ -2,3 +2,8 @@ analyzer:
   exclude:
     - build/**
 include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Country constants mirror the country's name (`south_africa`).
+    constant_identifier_names: false

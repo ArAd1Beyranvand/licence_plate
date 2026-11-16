@@ -8,4 +8,5 @@ export 'src/belgium_country.dart';
 export 'src/belgium_themes.dart';
 export 'src/belgium_plates.dart';
 export 'src/belgium_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show BelgiumAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show BelgiumAlphabets;

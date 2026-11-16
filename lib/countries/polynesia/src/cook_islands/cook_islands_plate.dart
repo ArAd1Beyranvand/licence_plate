@@ -8,4 +8,5 @@ export 'src/cook_islands_country.dart';
 export 'src/cook_islands_themes.dart';
 export 'src/cook_islands_plates.dart';
 export 'src/cook_islands_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show CookIslandsAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show CookIslandsAlphabets;

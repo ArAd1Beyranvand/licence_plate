@@ -8,4 +8,5 @@ export 'src/sint_eustatius_country.dart';
 export 'src/sint_eustatius_plates.dart';
 export 'src/sint_eustatius_themes.dart';
 export 'src/sint_eustatius_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SintEustatiusAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SintEustatiusAlphabets;

@@ -8,4 +8,5 @@ export 'src/somaliland_country.dart';
 export 'src/somaliland_themes.dart';
 export 'src/somaliland_plates.dart';
 export 'src/somaliland_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show SomalilandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show SomalilandAlphabets;

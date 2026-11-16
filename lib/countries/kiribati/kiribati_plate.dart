@@ -4,7 +4,8 @@
 /// arms, a theme for each, and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show KiribatiAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show KiribatiAlphabets;
 
 export 'src/kiribati_colors.dart';
 export 'src/kiribati_country.dart';

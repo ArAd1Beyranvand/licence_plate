@@ -19,7 +19,10 @@ abstract final class NigerCountry {
     panelColor: NigerColors.privateWhite,
     panelTextColor: NigerColors.black,
     flagAspectRatio: 45.8 / 37.4,
-    flag: SvgPlateAsset('assets/countries/niger/maps/niger_map.svg', package: 'license_plate'),
+    flag: SvgPlateAsset(
+      'assets/countries/niger/maps/niger_map.svg',
+      package: 'license_plate',
+    ),
   );
 
   static const PlateCountry commercial = PlateCountry(

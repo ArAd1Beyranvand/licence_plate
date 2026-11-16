@@ -3,7 +3,8 @@
 /// the black-on-yellow `3◆203` plate, one theme, a digits alphabet and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show NorfolkIslandAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show NorfolkIslandAlphabets;
 export 'src/norfolk_island_colors.dart';
 export 'src/norfolk_island_country.dart';
 export 'src/norfolk_island_plates.dart';

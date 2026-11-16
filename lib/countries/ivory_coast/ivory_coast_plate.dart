@@ -3,7 +3,8 @@
 /// Private, diplomatic, temporary and military plates.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show IvoryCoastAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show IvoryCoastAlphabets;
 
 export 'src/ivory_coast_colors.dart';
 export 'src/ivory_coast_country.dart';

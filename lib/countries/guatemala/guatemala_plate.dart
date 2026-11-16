@@ -3,7 +3,8 @@
 /// theme, alphabets and an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show GuatemalaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show GuatemalaAlphabets;
 
 export 'src/guatemala_colors.dart';
 export 'src/guatemala_country.dart';

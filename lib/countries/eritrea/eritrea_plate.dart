@@ -4,7 +4,8 @@
 /// digits, black on white, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show EritreaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show EritreaAlphabets;
 
 export 'src/eritrea_colors.dart';
 export 'src/eritrea_country.dart';

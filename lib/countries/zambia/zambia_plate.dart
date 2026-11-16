@@ -2,7 +2,8 @@
 /// private plate with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show ZambiaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show ZambiaAlphabets;
 export 'src/zambia_colors.dart';
 export 'src/zambia_country.dart';
 export 'src/zambia_plates.dart';

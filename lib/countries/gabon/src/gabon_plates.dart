@@ -53,7 +53,10 @@ abstract final class GabonPlates {
   static List<PlateSpec> get all => <PlateSpec>[private];
 
   static const PlateDecal _emblem = PlateDecal(
-    image: AssetImage('assets/countries/gabon/icons/cemac_emblem.png', package: 'license_plate'),
+    image: AssetImage(
+      'assets/countries/gabon/icons/cemac_emblem.png',
+      package: 'license_plate',
+    ),
     box: _Layout.emblem,
   );
 

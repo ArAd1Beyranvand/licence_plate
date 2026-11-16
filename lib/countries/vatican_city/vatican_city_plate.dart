@@ -3,7 +3,8 @@
 /// pale grey, with an advisory validator.
 library;
 
-export 'package:license_plate/alphabet/plate_alphabet.dart' show VaticanCityAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show VaticanCityAlphabets;
 export 'src/vatican_city_colors.dart';
 export 'src/vatican_city_country.dart';
 export 'src/vatican_city_plates.dart';

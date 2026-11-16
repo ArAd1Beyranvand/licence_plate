@@ -9,4 +9,5 @@ export 'src/nigeria_country.dart';
 export 'src/nigeria_themes.dart';
 export 'src/nigeria_plates.dart';
 export 'src/nigeria_validators.dart';
-export 'package:license_plate/alphabet/plate_alphabet.dart' show NigeriaAlphabets;
+export 'package:license_plate/alphabet/plate_alphabet.dart'
+    show NigeriaAlphabets;
