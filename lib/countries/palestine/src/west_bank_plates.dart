@@ -1,0 +1,388 @@
+import 'package:flutter/widgets.dart';
+import 'package:license_plate/core/plate_core.dart';
+
+import 'palestine_alphabets.dart';
+import 'palestine_country.dart';
+import 'palestine_slots.dart';
+import 'palestine_usage.dart';
+
+/// West Bank plate designs: modern (D·DDDD·L, since 2018) and legacy
+/// (D·DDDD·DD, 1994–2018). Only [modernCar] is measured from reference_plate.png;
+/// every other form factor is provisional. The host supplies the theme
+/// (`PSThemes.forUsage`) and, for legacy plates, [legacyCountryForUsage].
+abstract final class PSWestBankPlates {
+  // Shared 520 x 110 furniture.
+  static const List<PlateRule> _carRules = [
+    PlateRule(box: PlateBox(441, 8, 5, 94)),
+    PlateRule(box: PlateBox(452, 51, 46, 5)), // Between ف and P
+  ];
+
+  /// Identity block: two caption lines, no flag.
+  static const PlatePanel _carPanel = PlatePanel(
+    box: PlateBox(452, 8, 46, 94), // CALIBRATE — x measured, y proportional.
+    flagScale: 0,
+    captionScale: 1.9,
+    padding: EdgeInsets.symmetric(vertical: 5),
+  );
+
+  static final List<PlateSlot> _modernCarSlots = [
+    const PlateSlot(
+      alphabet: PSAlphabets.digits,
+      box: PlateBox(19.5, 9, 55, 92),
+    ),
+    psRun(
+      alphabet: PSAlphabets.digits,
+      count: 4,
+      left: 109.5,
+      top: 9,
+      cellWidth: 55,
+      height: 92,
+      pitch: 59,
+    ),
+    const PlateSlot(
+      alphabet: PSAlphabets.governorateLetters,
+      box: PlateBox(375.5, 9, 55, 92),
+    ),
+  ];
+
+  static const List<PlateLabel> _modernCarLabels = [
+    PlateLabel(
+      text: '-',
+      box: PlateBox(71.4, 36.6, 32.2, 36.8),
+      glyphHeight: 50.6,
+    ),
+    PlateLabel(
+      text: '-',
+      box: PlateBox(344.4, 36.6, 32.2, 36.8),
+      glyphHeight: 50.6,
+    ),
+  ];
+
+  static const List<PlateTextGroup> _modernGroups = [
+    PlateTextGroup([0], key: 'region'),
+    PlateTextGroup([1], key: 'serial'),
+    PlateTextGroup([2], key: 'governorate'),
+  ];
+
+  static final PlateSpec modernCar = PlateSpec(
+    id: 'ps.wb.modern.car',
+    country: PSCountries.westBankGreenInk,
+    canvasWidth: 520,
+    canvasHeight: 110,
+    panel: _carPanel,
+    borderWidthRatioOverride: 0.027,
+    slots: _modernCarSlots,
+    rules: _carRules,
+    labels: _modernCarLabels,
+    textGroups: _modernGroups,
+  );
+
+  // CALIBRATE — derived, not measured.
+  static final List<PlateSlot> _legacyCarSlots = [
+    const PlateSlot(
+      alphabet: PSAlphabets.districtDigits,
+      box: PlateBox(20, 9, 47, 92),
+    ),
+    psRun(
+      alphabet: PSAlphabets.digits,
+      count: 4,
+      left: 95,
+      top: 9,
+      cellWidth: 47,
+      height: 92,
+      pitch: 51,
+    ),
+    psRun(
+      alphabet: PSAlphabets.digits,
+      count: 2,
+      left: 323,
+      top: 9,
+      cellWidth: 47,
+      height: 92,
+      pitch: 51,
+    ),
+  ];
+
+  static const List<PlateLabel> _legacyCarLabels = [
+    PlateLabel(
+      text: '-',
+      box: PlateBox(64.9, 36.6, 32.2, 36.8),
+      glyphHeight: 50.6,
+    ),
+    PlateLabel(
+      text: '-',
+      box: PlateBox(292.9, 36.6, 32.2, 36.8),
+      glyphHeight: 50.6,
+    ),
+  ];
+
+  static const List<PlateTextGroup> _legacyGroups = [
+    PlateTextGroup([0], key: 'district'),
+    PlateTextGroup([1], key: 'serial'),
+    PlateTextGroup([2], key: 'usage'),
+  ];
+
+  static final PlateSpec legacyCar = PlateSpec(
+    id: 'ps.wb.legacy.car',
+    country: PSCountries.westBankGreenInk,
+    canvasWidth: 520,
+    canvasHeight: 110,
+    panel: _carPanel,
+    borderWidthRatioOverride: 0.027,
+    slots: _legacyCarSlots,
+    rules: _carRules,
+    labels: _legacyCarLabels,
+    textGroups: _legacyGroups,
+  );
+
+  static PlateCountry legacyCountryForUsage(PSUsage usage) => switch (usage) {
+    PSUsage.publicTransport ||
+    PSUsage.tradePlate => PSCountries.westBankWhiteInk,
+    PSUsage.government || PSUsage.exempt => PSCountries.westBankRedInk,
+    _ => PSCountries.westBankGreenInk,
+  };
+
+  // CALIBRATE
+  static const List<PlateRule> _twoLineRules = [
+    PlateRule(box: PlateBox(232, 10, 5, 130)),
+    PlateRule(box: PlateBox(243, 71, 50, 5)),
+  ];
+
+  static const PlatePanel _twoLinePanel = PlatePanel(
+    box: PlateBox(243, 10, 50, 130),
+    flagScale: 0,
+    captionScale: 2.6,
+    padding: EdgeInsets.symmetric(vertical: 5),
+  );
+
+  static const List<PlateLabel> _twoLineLabels = [
+    PlateLabel(text: '-', box: PlateBox(50, 30, 21, 24), glyphHeight: 33),
+  ];
+
+  static final PlateSpec modernCarTwoLine = PlateSpec(
+    id: 'ps.wb.modern.car2l',
+    country: PSCountries.westBankGreenInk,
+    canvasWidth: 300,
+    canvasHeight: 150,
+    panel: _twoLinePanel,
+    borderWidthRatioOverride: 0.027,
+    slots: [
+      const PlateSlot(
+        alphabet: PSAlphabets.digits,
+        box: PlateBox(16.5, 12, 34, 60),
+      ),
+      psRun(
+        alphabet: PSAlphabets.digits,
+        count: 4,
+        left: 70.5,
+        top: 12,
+        cellWidth: 34,
+        height: 60,
+        pitch: 37,
+      ),
+      const PlateSlot(
+        alphabet: PSAlphabets.governorateLetters,
+        box: PlateBox(99, 80, 34, 60),
+      ), // Line 2
+    ],
+    rules: _twoLineRules,
+    labels: _twoLineLabels,
+    textGroups: _modernGroups,
+  );
+
+  static final PlateSpec legacyCarTwoLine = PlateSpec(
+    id: 'ps.wb.legacy.car2l',
+    country: PSCountries.westBankGreenInk,
+    canvasWidth: 300,
+    canvasHeight: 150,
+    panel: _twoLinePanel,
+    borderWidthRatioOverride: 0.027,
+    slots: [
+      const PlateSlot(
+        alphabet: PSAlphabets.districtDigits,
+        box: PlateBox(16.5, 12, 34, 60),
+      ),
+      psRun(
+        alphabet: PSAlphabets.digits,
+        count: 4,
+        left: 70.5,
+        top: 12,
+        cellWidth: 34,
+        height: 60,
+        pitch: 37,
+      ),
+      psRun(
+        alphabet: PSAlphabets.digits,
+        count: 2,
+        left: 80.5,
+        top: 80,
+        cellWidth: 34,
+        height: 60,
+        pitch: 37,
+      ),
+    ],
+    rules: _twoLineRules,
+    labels: _twoLineLabels,
+    textGroups: _legacyGroups,
+  );
+
+  /// One-line motorcycle plate, measured from its own reference image. The
+  /// identity block is labels and a rule so the divider can be placed exactly.
+  static final PlateSpec modernMoto = PlateSpec(
+    id: 'ps.wb.modern.moto',
+    country: PSCountries.westBankGreenInkBlank,
+    canvasWidth: 250,
+    canvasHeight: 123,
+    panel: PlatePanel(
+      box: PlateBox(0, 0, 0, 0),
+      flagScale: 0,
+      captionScale: 0,
+      padding: EdgeInsets.zero,
+    ),
+    borderWidthRatioOverride: 0.0325, // 4 units on 123-tall plate
+    slots: [
+      const PlateSlot(
+        alphabet: PSAlphabets.digits,
+        box: PlateBox(12.5, 47, 30, 62),
+      ),
+      psRun(
+        alphabet: PSAlphabets.digits,
+        count: 4,
+        left: 60,
+        top: 47,
+        cellWidth: 30,
+        height: 62,
+        pitch: 32,
+      ),
+      const PlateSlot(
+        alphabet: PSAlphabets.governorateLetters,
+        box: PlateBox(205, 47, 30, 62),
+      ),
+    ],
+    rules: const [PlateRule(box: PlateBox(121, 11, 3, 28))],
+    labels: [
+      PlateLabel(text: 'P', box: PlateBox(95.5, 10, 24, 28), glyphHeight: 28),
+      PlateLabel(text: 'ف', box: PlateBox(127.5, 10, 28, 28), glyphHeight: 28),
+      PlateLabel(
+        text: '-',
+        box: PlateBox(40.15, 65.6, 21.7, 24.8),
+        glyphHeight: 34.1,
+      ),
+      PlateLabel(
+        text: '-',
+        box: PlateBox(184.65, 65.6, 21.7, 24.8),
+        glyphHeight: 34.1,
+      ),
+    ],
+    textGroups: _modernGroups,
+  );
+
+  /// Two-line motorcycle plate with the identity block as a bottom band.
+  // CALIBRATE — provisional; no reference image.
+  static final PlateSpec modernMotoTwoLine = PlateSpec(
+    id: 'ps.wb.modern.moto2l',
+    country: PSCountries.westBankGreenInkInline,
+    canvasWidth: 165,
+    canvasHeight: 165,
+    panel: PlatePanel(
+      box: PlateBox(45, 118, 75, 38),
+      flagScale: 0,
+      captionScale: 1.5,
+      padding: EdgeInsets.zero,
+    ),
+    borderWidthRatioOverride: 0.027,
+    slots: [
+      const PlateSlot(
+        alphabet: PSAlphabets.digits,
+        box: PlateBox(12.5, 14, 24, 46),
+      ),
+      psRun(
+        alphabet: PSAlphabets.digits,
+        count: 4,
+        left: 50.5,
+        top: 14,
+        cellWidth: 24,
+        height: 46,
+        pitch: 26,
+      ),
+      const PlateSlot(
+        alphabet: PSAlphabets.governorateLetters,
+        box: PlateBox(70.5, 64, 24, 46),
+      ),
+    ],
+    rules: const [PlateRule(box: PlateBox(12, 113, 141, 3))],
+    labels: [
+      PlateLabel(
+        text: '-',
+        box: PlateBox(35.45, 27.8, 16.1, 18.4),
+        glyphHeight: 25.3,
+      ),
+    ],
+    textGroups: _modernGroups,
+  );
+
+  /// Trade plate with a header of `اختبار` and `במבחן`, two labels so each keeps
+  /// its own bidi direction.
+  // CALIBRATE — provisional; no reference image.
+  static final PlateSpec modernTrade = PlateSpec(
+    id: 'ps.wb.modern.trade',
+    country: PSCountries.westBankWhiteInk,
+    canvasWidth: 520,
+    canvasHeight: 110,
+    panel: _carPanel,
+    borderWidthRatioOverride: 0.027,
+    slots: [
+      const PlateSlot(
+        alphabet: PSAlphabets.digits,
+        box: PlateBox(43, 38, 48, 64),
+      ),
+      psRun(
+        alphabet: PSAlphabets.digits,
+        count: 4,
+        left: 120,
+        top: 38,
+        cellWidth: 48,
+        height: 64,
+        pitch: 51,
+      ),
+      const PlateSlot(
+        alphabet: PSAlphabets.governorateLetters,
+        box: PlateBox(350, 38, 48, 64),
+      ),
+    ],
+    rules: _carRules,
+    labels: const [
+      PlateLabel(
+        text: 'اختبار',
+        box: PlateBox(20, 8, 200, 26),
+        glyphHeight: 26,
+      ),
+      PlateLabel(
+        text: 'במבחן',
+        box: PlateBox(230, 8, 200, 26),
+        glyphHeight: 26,
+      ),
+      PlateLabel(
+        text: '-',
+        box: PlateBox(94.3, 57.2, 22.4, 25.6),
+        glyphHeight: 35.2,
+      ),
+      PlateLabel(
+        text: '-',
+        box: PlateBox(324.3, 57.2, 22.4, 25.6),
+        glyphHeight: 35.2,
+      ),
+    ],
+    textGroups: _modernGroups,
+  );
+
+  static final List<PlateSpec> all = [
+    modernCar,
+    legacyCar,
+    modernCarTwoLine,
+    legacyCarTwoLine,
+    modernMoto,
+    modernMotoTwoLine,
+    modernTrade,
+  ];
+}

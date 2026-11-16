@@ -1,0 +1,14 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import 'venezuela_colors.dart';
+
+/// No flag block and no caption: the flag is the background's stripes and the
+/// country's name is a [PlateLabel] across the top, so every spec sets
+/// `noPanel`.
+abstract final class VenezuelaCountry {
+  static const PlateCountry venezuela = PlateCountry(
+    code: 've',
+    panelColor: VenezuelaColors.blue,
+    panelTextColor: VenezuelaColors.field,
+  );
+}

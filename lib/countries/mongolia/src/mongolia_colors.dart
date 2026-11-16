@@ -1,0 +1,10 @@
+import 'package:flutter/widgets.dart';
+
+/// Sampled from `.plateref/mn/flat_Plak_Mo_olistan_2001.png` (modal colour of
+/// each region), not read from the article's adjectives.
+abstract final class MongoliaColors {
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+
+  static const Color soyomboRed = Color(0xFFDC171C);
+}

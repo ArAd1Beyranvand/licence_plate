@@ -1,0 +1,618 @@
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+
+import '../model/plate_alphabet.dart';
+import '../model/plate_spec.dart';
+import '../model/slot_behavior.dart';
+import '../theme/plate_theme.dart';
+import 'plate_glyph_run.dart';
+
+/// One plate position, rendered per [SlotBehavior].
+class PlateSlotItem extends StatelessWidget {
+  const PlateSlotItem({
+    super.key,
+    required this.slot,
+    required this.behavior,
+    required this.value,
+    required this.controller,
+    required this.focusNode,
+    required this.onChanged,
+    required this.onCompleted,
+    required this.onBackspace,
+    this.theme,
+    this.onPressed,
+    this.systemKeyboard = false,
+    this.onRequestSystemKeyboard,
+    this.hint,
+  });
+
+  final PlateSlot slot;
+  final SlotBehavior behavior;
+  final String? value;
+
+  /// Rendered sample shown faintly in place of the alphabet's placeholder.
+  final String? hint;
+  final TextEditingController? controller;
+  final FocusNode focusNode;
+
+  /// Commits a canonical character, or '' to clear. Returns whether it was
+  /// stored — false for a value that breaks a spec restriction.
+  final bool Function(String value) onChanged;
+
+  /// Fires after a non-empty commit.
+  final VoidCallback? onCompleted, onBackspace;
+  final PlateTheme? theme;
+  final VoidCallback? onPressed;
+
+  /// [SlotBehavior.keypadFirstField] only: whether typed slots currently take
+  /// the platform keyboard.
+  final bool systemKeyboard;
+
+  /// [SlotBehavior.keypadFirstField] only: fired when the slot is tapped.
+  final VoidCallback? onRequestSystemKeyboard;
+
+  @override
+  Widget build(BuildContext context) {
+    final effectiveTheme = theme ?? PlateTheme.of(context);
+    if (behavior == .glyph) {
+      return _GlyphSlot(
+        slot: slot,
+        value: value,
+        hint: hint,
+        theme: effectiveTheme,
+      );
+    }
+    final typed =
+        behavior == .imeField ||
+        behavior == .keypadFirstField ||
+        (behavior != SlotBehavior.sheet &&
+            slot.alphabet.input == AlphabetInput.typed);
+    if (typed) {
+      return _TypedField(
+        slot: slot,
+        value: value,
+        behavior: behavior,
+        controller: controller!,
+        focusNode: focusNode,
+        onChanged: onChanged,
+        onCompleted: onCompleted,
+        onBackspace: onBackspace,
+        theme: effectiveTheme,
+        systemKeyboard: systemKeyboard,
+        onRequestSystemKeyboard: onRequestSystemKeyboard,
+        hint: hint,
+      );
+    }
+    return _ChosenSlot(
+      slot: slot,
+      behavior: behavior,
+      value: value,
+      focusNode: focusNode,
+      onChanged: onChanged,
+      onPressed: onPressed,
+      onBackspace: onBackspace,
+      theme: effectiveTheme,
+      hint: hint,
+    );
+  }
+}
+
+/// Bare rendered character (glyph slot).
+class _GlyphSlot extends StatelessWidget {
+  const _GlyphSlot({
+    required this.slot,
+    required this.value,
+    required this.theme,
+    this.hint,
+  });
+
+  final PlateSlot slot;
+  final String? value;
+  final PlateTheme theme;
+  final String? hint;
+
+  @override
+  Widget build(BuildContext context) {
+    final v = value ?? '';
+    return SizedBox(
+      width: slot.box.width,
+      height: slot.box.height,
+      child: Center(
+        child: FittedBox(
+          fit: .scaleDown,
+          // Letter spacing trails the last glyph too; the same space
+          // before the first keeps the run centred.
+          child: Padding(
+            padding: EdgeInsets.only(left: slot.spacing),
+            child: PlateGlyphRun(
+              text: v.isEmpty ? '' : slot.render(v),
+              textDirection: slot.alphabet.direction,
+              style: theme.glyphStyle(
+                slot.box.height,
+                slot.color ?? theme.ink,
+                letterSpacing: slot.spacing,
+              ),
+              placeholder: hint ?? '',
+              placeholderStyle: theme.glyphStyle(
+                slot.box.height,
+                theme.inactiveColor,
+                letterSpacing: slot.spacing,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// TextField restyled to a bare glyph with thin underline.
+///
+/// Under [SlotBehavior.keypadFirstField] the slot's [focusNode] sits on a
+/// wrapper and the field has its own node, focused only while [systemKeyboard]
+/// holds. On the keypad no field is focused, so no text input connection is
+/// open: an open one, even with [TextInputType.none], makes the web engine
+/// read the keyboard closing as an inset and leave its space blank.
+class _TypedField extends StatefulWidget {
+  const _TypedField({
+    required this.slot,
+    required this.value,
+    required this.behavior,
+    required this.controller,
+    required this.focusNode,
+    required this.onChanged,
+    required this.onCompleted,
+    required this.onBackspace,
+    required this.theme,
+    this.systemKeyboard = false,
+    this.onRequestSystemKeyboard,
+    this.hint,
+  });
+
+  final PlateSlot slot;
+  final String? value, hint;
+  final SlotBehavior behavior;
+  final TextEditingController controller;
+  final FocusNode focusNode;
+  final bool Function(String value) onChanged;
+  final VoidCallback? onCompleted, onBackspace;
+  final PlateTheme theme;
+  final bool systemKeyboard;
+  final VoidCallback? onRequestSystemKeyboard;
+
+  @override
+  State<_TypedField> createState() => _TypedFieldState();
+}
+
+class _TypedFieldState extends State<_TypedField> {
+  final FocusNode _fieldNode = FocusNode();
+
+  bool get _split => widget.behavior == .keypadFirstField;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.focusNode.addListener(_forwardFocus);
+  }
+
+  @override
+  void didUpdateWidget(_TypedField old) {
+    super.didUpdateWidget(old);
+    if (old.focusNode != widget.focusNode) {
+      old.focusNode.removeListener(_forwardFocus);
+      widget.focusNode.addListener(_forwardFocus);
+    }
+    if (!_split) return;
+    if (!widget.systemKeyboard && _fieldNode.hasFocus) {
+      // Back on the keypad: the wrapper takes focus, closing the connection.
+      widget.focusNode.requestFocus();
+    } else {
+      _forwardFocus();
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.focusNode.removeListener(_forwardFocus);
+    _fieldNode.dispose();
+    super.dispose();
+  }
+
+  /// Focus put on the slot reaches the field while the keyboard is wanted.
+  void _forwardFocus() {
+    if (_split && widget.systemKeyboard && widget.focusNode.hasPrimaryFocus) {
+      _fieldNode.requestFocus();
+    }
+  }
+
+  /// Physical keys while the wrapper holds focus, which no field sees.
+  KeyEventResult _keypadKey(KeyEvent event) {
+    final slot = widget.slot;
+    final held = widget.value ?? '';
+    if (event.logicalKey == LogicalKeyboardKey.backspace) {
+      if (held.isEmpty) {
+        widget.onBackspace?.call();
+      } else {
+        widget.onChanged(
+          String.fromCharCodes(held.runes.take(held.runes.length - 1)),
+        );
+      }
+      return .handled;
+    }
+    final ch = event.character;
+    if (ch == null || ch.runes.length != 1) return .ignored;
+    final next = held + slot.canonical(ch);
+    if (!slot.accepts(next)) return .ignored;
+    if (widget.onChanged(next) && slot.isFull(next)) widget.onCompleted?.call();
+    return .handled;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final slot = widget.slot;
+    final behavior = widget.behavior;
+    final controller = widget.controller;
+    final focusNode = widget.focusNode;
+    final theme = widget.theme;
+    final value = widget.value;
+    final onChanged = widget.onChanged;
+    final onCompleted = widget.onCompleted;
+    final fieldNode = _split ? _fieldNode : focusNode;
+    final readOnly = behavior == .externalField;
+    final style = _fittedStyle();
+    // A shrunk run keeps its bottom where a full-size one would sit, so its
+    // baseline lines up with the neighbouring slots.
+    final shrink =
+        theme.glyphStyle(slot.box.height, theme.ink).fontSize! -
+        style.fontSize!;
+    final sample = widget.hint ?? slot.alphabet.placeholder;
+    final sampleStyle = style.copyWith(
+      letterSpacing: widget.hint == null ? 0 : null,
+    );
+
+    return SizedBox(
+      width: slot.box.width,
+      height: slot.box.height,
+      child: Focus(
+        focusNode: _split ? focusNode : null,
+        canRequestFocus: _split,
+        skipTraversal: !_split,
+        onKeyEvent: (node, event) {
+          if (event is! KeyDownEvent && event is! KeyRepeatEvent) {
+            return .ignored;
+          }
+          if (_split && focusNode.hasPrimaryFocus) return _keypadKey(event);
+          if (event.logicalKey != LogicalKeyboardKey.backspace) {
+            return .ignored;
+          }
+          if (!readOnly && controller.text.isNotEmpty) {
+            return .ignored;
+          }
+          widget.onBackspace?.call();
+          return .handled;
+        },
+        child: _HoldsPageStill(
+          child: Listener(
+            // Flips the keyboard type on pointer down so the rebuilt field is in
+            // place when the tap-up opens the input connection.
+            onPointerDown: behavior == .keypadFirstField
+                ? (_) => widget.onRequestSystemKeyboard?.call()
+                : null,
+            child: ListenableBuilder(
+              // The controller too: the underline darkens as the slot fills.
+              listenable: Listenable.merge([focusNode, controller]),
+              builder: (context, _) {
+                // The overlay centres the typed text and the sample's rest as
+                // one run, so the field starts its text where that run does and
+                // the caret follows the typed part instead of the field's centre.
+                final runWidth = math.max(
+                  _widthOf(sample, sampleStyle),
+                  _widthOf(controller.text, style),
+                );
+                final lead = math.max(
+                  slot.spacing,
+                  slot.spacing + (slot.box.width - slot.spacing - runWidth) / 2,
+                );
+                return Stack(
+                  fit: .passthrough,
+                  children: [
+                    TextField(
+                      controller: controller,
+                      focusNode: fieldNode,
+                      readOnly: readOnly,
+                      onTapOutside: readOnly ? (PointerDownEvent _) {} : null,
+                      // A slot is filled from its end, so the cursor sits after what is
+                      // already there whichever part of the field was tapped.
+                      onTap: () =>
+                          controller.selection = TextSelection.collapsed(
+                            offset: controller.text.length,
+                          ),
+                      showCursor: readOnly ? focusNode.hasFocus : null,
+                      textAlign: .start,
+                      // The slot's script, not the plate's: Persian numerals run
+                      // left to right inside an RTL plate, and the caret must follow.
+                      textDirection: slot.alphabet.direction,
+                      // The field keeps the caret, selection and IME; the glyphs
+                      // are drawn by the animated run laid over it.
+                      style: style.copyWith(color: const Color(0x00000000)),
+                      cursorColor: theme.activeColor,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        // Left inset balances the letter spacing trailing the run.
+                        contentPadding: EdgeInsetsDirectional.only(
+                          start: lead,
+                          // A full-size run (0.72 of the box) centred, so the field
+                          // fills its box like a chosen slot: same baseline, underline
+                          // on the box's bottom edge.
+                          top: slot.box.height * 0.14 + shrink,
+                          bottom: slot.box.height * 0.14,
+                        ),
+                        filled: false,
+                        counterText: '',
+                        hintText: widget.hint ?? slot.alphabet.placeholder,
+                        hintStyle: style.copyWith(
+                          color: const Color(0x00000000),
+                        ),
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(color: theme.inactiveColor),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            // Under the keypad the wrapper, not the field, is focused.
+                            color:
+                                controller.text.isEmpty && !focusNode.hasFocus
+                                ? theme.inactiveColor
+                                : theme.activeColor,
+                          ),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: theme.activeColor),
+                        ),
+                      ),
+                      onChanged: (typed) {
+                        if (typed.isEmpty || slot.accepts(typed)) {
+                          final canonical = slot.canonical(typed);
+                          if (slot.alphabet.glyphs.isEmpty &&
+                              canonical != typed) {
+                            controller.value = TextEditingValue(
+                              text: canonical,
+                              selection: TextSelection.collapsed(
+                                offset: canonical.length,
+                              ),
+                            );
+                          }
+                          if (!onChanged(canonical)) return;
+                          if (slot.isFull(canonical)) onCompleted?.call();
+                        } else {
+                          // A run keeps what was already valid in it; a stray character
+                          // only costs itself.
+                          final kept = slot.render(value ?? '');
+                          controller.value = TextEditingValue(
+                            text: kept,
+                            selection: TextSelection.collapsed(
+                              offset: kept.length,
+                            ),
+                          );
+                        }
+                      },
+                      maxLength: slot.length,
+                      keyboardType: behavior == .hardwareField
+                          ? TextInputType.none
+                          : slot.alphabet.isNumeric
+                          ? TextInputType.number
+                          : TextInputType.text,
+                    ),
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: Padding(
+                          // The field's content padding.
+                          padding: EdgeInsets.only(
+                            left: slot.spacing,
+                            top: slot.box.height * 0.14 + shrink,
+                          ),
+                          child: Align(
+                            alignment: .topCenter,
+                            child: PlateGlyphRun(
+                              text: controller.text,
+                              textDirection: slot.alphabet.direction,
+                              style: style,
+                              placeholder: sample,
+                              placeholderStyle: sampleStyle.copyWith(
+                                color: theme.inactiveColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  double _widthOf(String text, TextStyle style) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textDirection: widget.slot.alphabet.direction,
+      maxLines: 1,
+    )..layout();
+    final width = painter.width;
+    painter.dispose();
+    return width;
+  }
+
+  /// [PlateTheme.glyphStyle], shrunk so a full run of the widest legal
+  /// character fits the slot. Display slots get this from a [FittedBox]; an
+  /// editable field cannot be scaled that way, so it is sized up front.
+  TextStyle _fittedStyle() {
+    final slot = widget.slot;
+    final theme = widget.theme;
+    final base = theme.glyphStyle(
+      slot.box.height,
+      slot.color ?? theme.ink,
+      letterSpacing: slot.spacing,
+    );
+    final alphabet = slot.alphabet;
+    final painter = TextPainter(textDirection: alphabet.direction, maxLines: 1);
+    var widest = 0.0;
+    for (final c in alphabet.characters) {
+      painter.text = TextSpan(
+        text: alphabet.render(c) * slot.length,
+        style: base,
+      );
+      painter.layout();
+      if (painter.width > widest) widest = painter.width;
+    }
+    painter.dispose();
+    // The left inset that balances trailing letter spacing, plus caret room.
+    final available = slot.box.width - slot.spacing - 4;
+    if (widest <= available || widest == 0) return base;
+    final scale = available / widest;
+    return base.copyWith(
+      fontSize: base.fontSize! * scale,
+      letterSpacing: slot.spacing * scale,
+    );
+  }
+}
+
+/// Focusable slot with underline; placeholder glyph when empty.
+class _ChosenSlot extends StatelessWidget {
+  const _ChosenSlot({
+    required this.slot,
+    required this.behavior,
+    required this.value,
+    required this.focusNode,
+    required this.onChanged,
+    required this.onPressed,
+    required this.onBackspace,
+    required this.theme,
+    this.hint,
+  });
+
+  final PlateSlot slot;
+  final SlotBehavior behavior;
+  final String? value, hint;
+  final FocusNode focusNode;
+  final bool Function(String value) onChanged;
+  final VoidCallback? onPressed, onBackspace;
+  final PlateTheme theme;
+
+  @override
+  Widget build(BuildContext context) {
+    final isEmpty = value == null || value!.isEmpty;
+
+    final letter = PlateGlyphRun(
+      text: isEmpty ? '' : slot.alphabet.render(value!),
+      textDirection: slot.alphabet.direction,
+      style: theme.glyphStyle(slot.box.height, slot.color ?? theme.ink),
+      placeholder: hint ?? slot.alphabet.placeholder,
+      placeholderStyle: theme.glyphStyle(slot.box.height, theme.inactiveColor),
+    );
+
+    final restingColor = isEmpty ? theme.inactiveColor : theme.activeColor;
+
+    if (behavior == .sheet) {
+      return InkWell(
+        onTap: onPressed,
+        child: _SlotBox(
+          slot: slot,
+          underlineColor: restingColor,
+          child: letter,
+        ),
+      );
+    }
+
+    final consumesKeys =
+        behavior == .hardwareField || behavior == .keypadFirstField;
+    return Focus(
+      focusNode: focusNode,
+      onKeyEvent: consumesKeys
+          ? (node, event) {
+              if (event is! KeyDownEvent) return .ignored;
+              if (event.logicalKey == LogicalKeyboardKey.backspace) {
+                if (isEmpty) {
+                  onBackspace?.call();
+                } else {
+                  onChanged('');
+                }
+                return .handled;
+              }
+              final ch = event.character;
+              if (ch != null && ch.length == 1 && slot.alphabet.accepts(ch)) {
+                onChanged(slot.alphabet.canonical(ch));
+                return .handled;
+              }
+              return .ignored;
+            }
+          : null,
+      child: Builder(
+        builder: (context) {
+          final hasFocus = Focus.of(context).hasFocus;
+          return GestureDetector(
+            onTap: () => focusNode.requestFocus(),
+            child: _SlotBox(
+              slot: slot,
+              underlineColor: hasFocus ? theme.activeColor : restingColor,
+              child: letter,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _SlotBox extends StatelessWidget {
+  const _SlotBox({
+    required this.slot,
+    required this.underlineColor,
+    required this.child,
+  });
+
+  final PlateSlot slot;
+  final Color underlineColor;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    width: slot.box.width,
+    height: slot.box.height,
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: underlineColor)),
+      ),
+      child: Center(
+        child: FittedBox(fit: BoxFit.scaleDown, child: child),
+      ),
+    ),
+  );
+}
+
+/// Swallows the request to scroll a focused slot into view, so editing the
+/// plate itself never moves the page. Fields outside the plate keep the
+/// default behaviour.
+class _HoldsPageStill extends SingleChildRenderObjectWidget {
+  const _HoldsPageStill({required super.child});
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderHoldsPageStill();
+}
+
+class _RenderHoldsPageStill extends RenderProxyBox {
+  @override
+  void showOnScreen({
+    RenderObject? descendant,
+    Rect? rect,
+    Duration duration = Duration.zero,
+    Curve curve = Curves.ease,
+  }) {}
+}

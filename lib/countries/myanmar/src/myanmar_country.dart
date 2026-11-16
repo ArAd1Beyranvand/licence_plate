@@ -1,0 +1,13 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import 'myanmar_colors.dart';
+
+/// Myanmar as a `PlateCountry`. The plates carry no country block, so every
+/// spec sets `noPanel`.
+abstract final class MyanmarCountry {
+  static const PlateCountry myanmar = PlateCountry(
+    code: 'mm',
+    panelColor: MyanmarColors.black,
+    panelTextColor: MyanmarColors.white,
+  );
+}

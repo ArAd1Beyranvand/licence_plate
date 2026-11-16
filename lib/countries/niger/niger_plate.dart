@@ -1,0 +1,18 @@
+/// Niger's licence plates for the `plate_core` library.
+///
+/// The 2005 series: a region digit and series letter, a hologram mark, a
+/// four-digit serial, and the country's map over `RN` at the right. Private
+/// (black on white, black map) and commercial (black on orange, map in the
+/// national colours).
+library;
+
+export 'src/niger_alphabets.dart';
+export 'src/niger_colors.dart';
+export 'src/niger_country.dart';
+export 'src/niger_other_plates.dart';
+export 'src/niger_plates.dart';
+export 'src/niger_regions.dart';
+export 'src/niger_serial_generator.dart';
+export 'src/niger_themes.dart';
+export 'src/niger_usage.dart';
+export 'src/niger_validators.dart';

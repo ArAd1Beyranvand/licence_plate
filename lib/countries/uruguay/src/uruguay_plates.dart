@@ -1,0 +1,268 @@
+import 'package:flutter/widgets.dart' show Color, EdgeInsets;
+import 'package:license_plate/alphabet/plate_alphabet.dart';
+import 'package:license_plate/core/plate_core.dart';
+
+import 'uruguay_colors.dart';
+import 'uruguay_country.dart';
+import 'uruguay_regions.dart';
+
+/// Where the ink sits, in plate units.
+///
+/// The canvas is the Mercosur size the article gives, 400×130 (the 2007 plates
+/// are photographed at 3.0–3.1, close enough to share it). The references are
+/// the flat photographs (2080×712, drawn by the offline stage in plate units
+/// 500×166); x is scaled by 0.8 and y by 0.783.
+///
+/// Serial plate (2007, e.g. `LAA 2821`): ink y 12.2–123 → 9.6–96.3, letters
+/// x 130–815 of 2080 → 25–157 (pitch 44), a gap for the Colonia crest, digits
+/// x 1015–1950 → 195–376 (pitch 45). Caption row ink y 127–156 → 99.5–122,
+/// centred x 195 (`URUGUAY` x 180–370 of 500 → 144–296). Ambulance and doctor
+/// carry a cross at x 30–56, y 98–120.
+///
+/// Ink is about 55% of a box and the box cannot leave the canvas, so the
+/// 86-unit serial ink is drawn at 106-box height (~58 ink, ~67%). The caption
+/// meets its ~22 of ink with glyph 30–38 sized to fit the width.
+///
+/// Mercosur (2016): blue band y 0–38 (the photographed divider at 46.6 of 166
+/// → 36.5), `URUGUAY` in white within it; letters x 27–157 and digits
+/// x 199–375, serial ink y 48–120 against a 92-box (~51 ink, 70%).
+///
+/// Not drawn: the Colonia crest and corner shield on the 2007 plates (a
+/// department's own, not part of the type), the Mercosur flag and logo, the
+/// motorcycle plate (letters over digits, a different design), and the
+/// pre-2000 departmental plates. The tourist-bus (white on blue) is left out
+/// for want of a measured reference. The school, tourist, truck, rental and
+/// diplomatic plates have no photograph here: they reuse the serial plate with
+/// the table's caption and colours.
+abstract final class _Layout {
+  static const double width = 400, height = 130;
+
+  static const double serialTop = 2, serialHeight = 106, lettersLeft = 25;
+  static const double lettersPitch = 44, digitsRight = 376, digitsPitch = 45;
+
+  static const double captionCx = 195, captionCy = 111, captionWidth = 300;
+
+  static const double mercosurBandEnd = 38, mercosurTop = 38;
+  static const double mercosurHeight = 92, mercosurLettersLeft = 27;
+  static const double mercosurLettersPitch = 43.5, mercosurDigitsRight = 375;
+  static const double mercosurDigitsPitch = 44;
+
+  /// The president plate's dark top ends here: 0.62 of the height, read off
+  /// the sheet, not measured.
+  static const double presidentBandEnd = 80;
+}
+
+/// What varies between serial plates: the caption, its glyph size, and the
+/// extras.
+class _Serial {
+  const _Serial(
+    this.id,
+    this.caption,
+    this.glyph, {
+    this.cross = false,
+    this.digits = 4,
+    this.background = PlateSection.plain,
+  });
+
+  final String id, caption;
+  final double glyph;
+  final bool cross;
+  final int digits;
+  final PlateSection background;
+}
+
+/// The Uruguayan plates. Serial plates are `A BC 1234`: groups `first` (three
+/// letters, the first a department code) and `number`. Colour is a theme: see
+/// `UruguayThemes`.
+abstract final class UruguayPlates {
+  static final PlateSpec private = _serial(
+    const _Serial('uy.private', 'URUGUAY', 30),
+  );
+  static final PlateSpec official = _serial(
+    const _Serial('uy.official', 'OFICIAL - URUGUAY', 32),
+  );
+  static final PlateSpec ambulance = _serial(
+    const _Serial('uy.ambulance', 'URUGUAY', 30, cross: true),
+  );
+  static final PlateSpec assembly = _serial(
+    const _Serial('uy.assembly', 'EDIL JUNTA DEPARTAMENTAL', 26),
+  );
+  static final PlateSpec president = _serial(
+    const _Serial(
+      'uy.president',
+      'PRESIDENTE J. DEPARTAMENTAL',
+      26,
+      digits: 1,
+      background: PlateSection.rows(<PlatePart>[
+        PlatePart(PlateSection.plain, end: _Layout.presidentBandEnd),
+        PlatePart(
+          PlateSection.fill(PlateFill.color(UruguayColors.presidentLight)),
+        ),
+      ]),
+    ),
+  );
+  static final PlateSpec remise = _serial(
+    const _Serial('uy.remise', 'REMISE', 30),
+  );
+  static final PlateSpec taxi = _serial(const _Serial('uy.taxi', 'TAXI', 30));
+  static final PlateSpec school = _serial(
+    const _Serial('uy.school', 'ESCOLAR', 30),
+  );
+  static final PlateSpec tourist = _serial(
+    const _Serial('uy.tourist', 'TURISMO - URUGUAY', 32),
+  );
+  static final PlateSpec truck = _serial(
+    const _Serial('uy.truck', 'CARGA URUGUAY', 32),
+  );
+  static final PlateSpec rental = _serial(
+    const _Serial('uy.rental', 'ALQUILER - URUGUAY', 32),
+  );
+
+  /// The 2016 Mercosur plate: a blue band with `URUGUAY` above the serial.
+  static final PlateSpec mercosur = _mercosur();
+
+  static List<PlateSpec> get all => <PlateSpec>[
+    private,
+    official,
+    ambulance,
+    assembly,
+    president,
+    remise,
+    taxi,
+    school,
+    tourist,
+    truck,
+    rental,
+    mercosur,
+  ];
+
+  static PlateSpec _serial(_Serial s) {
+    return _spec(
+      id: s.id,
+      slots: _slots(
+        lettersLeft: _Layout.lettersLeft,
+        lettersPitch: _Layout.lettersPitch,
+        digitsRight: _Layout.digitsRight,
+        digitsPitch: _Layout.digitsPitch,
+        top: _Layout.serialTop,
+        height: _Layout.serialHeight,
+        digits: s.digits,
+      ),
+      background: s.background,
+      rules: s.cross
+          ? const <PlateRule>[
+              PlateRule(box: PlateBox(32, 105.5, 22, 7)),
+              PlateRule(box: PlateBox(39.5, 98, 7, 22)),
+            ]
+          : const <PlateRule>[],
+      labels: <PlateLabel>[
+        PlateLabel(
+          text: s.caption,
+          box: PlateBox(
+            _Layout.captionCx - _Layout.captionWidth / 2,
+            _Layout.captionCy - 11,
+            _Layout.captionWidth,
+            22,
+          ),
+          glyphHeight: s.glyph,
+        ),
+      ],
+    );
+  }
+
+  static PlateSpec _mercosur() {
+    return _spec(
+      id: 'uy.mercosur',
+      slots: _slots(
+        lettersLeft: _Layout.mercosurLettersLeft,
+        lettersPitch: _Layout.mercosurLettersPitch,
+        digitsRight: _Layout.mercosurDigitsRight,
+        digitsPitch: _Layout.mercosurDigitsPitch,
+        top: _Layout.mercosurTop,
+        height: _Layout.mercosurHeight,
+        digits: 4,
+      ),
+      background: const PlateSection.rows(<PlatePart>[
+        PlatePart(
+          PlateSection.fill(PlateFill.color(UruguayColors.mercosurBand)),
+          end: _Layout.mercosurBandEnd,
+        ),
+        PlatePart(PlateSection.plain),
+      ]),
+      labels: const <PlateLabel>[
+        PlateLabel(
+          text: 'URUGUAY',
+          box: PlateBox(100, 8, 200, 22),
+          glyphHeight: 34,
+          color: Color(0xFFFFFFFF),
+        ),
+      ],
+    );
+  }
+
+  /// Three letters, the first a department code, so two slots: the first is
+  /// drawn from a narrower alphabet. The number is right-aligned to
+  /// [digitsRight] and holds up to [digits], as few as one.
+  static List<PlateSlot> _slots({
+    required double lettersLeft,
+    required double lettersPitch,
+    required double digitsRight,
+    required double digitsPitch,
+    required double top,
+    required double height,
+    required int digits,
+  }) => <PlateSlot>[
+    PlateSlot(
+      alphabet: UruguayAlphabets.department,
+      box: PlateBox(lettersLeft, top, lettersPitch, height),
+      length: 1,
+    ),
+    plateRun(
+      UruguayAlphabets.letters,
+      2,
+      left: lettersLeft + lettersPitch,
+      top: top,
+      pitch: lettersPitch,
+      height: height,
+    ),
+    PlateSlot(
+      alphabet: UruguayAlphabets.digits,
+      box: PlateBox(
+        digitsRight - digits * digitsPitch,
+        top,
+        digits * digitsPitch,
+        height,
+      ),
+      length: digits,
+      minLength: digits > 1 ? 1 : null,
+    ),
+  ];
+
+  static PlateSpec _spec({
+    required String id,
+    required List<PlateSlot> slots,
+    required PlateSection background,
+    required List<PlateLabel> labels,
+    List<PlateRule> rules = const <PlateRule>[],
+  }) {
+    return PlateSpec(
+      id: id,
+      country: UruguayCountry.uruguay,
+      canvasWidth: _Layout.width,
+      canvasHeight: _Layout.height,
+      panel: const PlatePanel(
+        box: PlateBox(0, 0, 0, _Layout.height),
+        padding: EdgeInsets.zero,
+      ),
+      background: background,
+      slots: slots,
+      rules: rules,
+      labels: labels,
+      textGroups: <PlateTextGroup>[
+        PlateTextGroup(<int>[0, 1], key: 'first'),
+        PlateTextGroup(<int>[2], key: 'number'),
+      ],
+      resolveRegion: UruguayRegions.captionOf,
+    );
+  }
+}

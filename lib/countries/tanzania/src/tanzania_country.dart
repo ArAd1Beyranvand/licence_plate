@@ -1,0 +1,12 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import 'tanzania_colors.dart';
+
+/// No side band; the flag is a decal on each spec.
+abstract final class TanzaniaCountry {
+  static const PlateCountry tanzania = PlateCountry(
+    code: 'tz',
+    panelColor: TanzaniaColors.yellow,
+    panelTextColor: TanzaniaColors.yellowInk,
+  );
+}

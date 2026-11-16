@@ -1,0 +1,148 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import 'maldives_alphabets.dart';
+import 'maldives_country.dart';
+import 'maldives_themes.dart';
+
+/// Pixel measurements off the three reference artwork images, which share one
+/// geometry. The canvas is the artwork's own 461×273 (aspect 1.69); the
+/// photographed 2.95 format is not implemented.
+///
+/// Cap ink is ~0.53 of the box height (`glyphStyle` sets the font to 0.72 of
+/// it), so the boxes are 88 and 135 tall for ink of 46 and 71. The centres are
+/// offset 1.3 and 1.5 from the measured ink centres to correct where the
+/// glyphs land.
+///
+/// The frame is an 8-thick line floating inside the edge, painted in the
+/// background as the divider colour (which the themes make the ink colour);
+/// the theme's own border is zero.
+abstract final class _Layout {
+  static const double width = 461, height = 273;
+
+  static const double topCy = 71.8, topBox = 88;
+  static const double bottomCy = 186.5, bottomBox = 135;
+
+  static const double firstCx = 142, lastCx = 320;
+  static const double categoryCx = 230.5, categoryPitch = 43, singleWidth = 64;
+
+  static const double serialCx = 280.5, serialPitch = 64, letterCx = 90.5;
+
+  /// The ring: outside it the field, the line itself the divider colour.
+  static const PlateSection frame = PlateSection.columns(<PlatePart>[
+    PlatePart(PlateSection.plain, end: 17),
+    PlatePart(
+      PlateSection.rows(<PlatePart>[
+        PlatePart(PlateSection.plain, end: 14),
+        PlatePart(
+          PlateSection.columns(<PlatePart>[
+            PlatePart(PlateSection.fill(PlateFill.divider), end: 25),
+            PlatePart(
+              PlateSection.rows(<PlatePart>[
+                PlatePart(PlateSection.fill(PlateFill.divider), end: 22),
+                PlatePart(PlateSection.plain, end: 251),
+                PlatePart(PlateSection.fill(PlateFill.divider)),
+              ]),
+              end: 437,
+            ),
+            PlatePart(PlateSection.fill(PlateFill.divider)),
+          ]),
+          end: 259,
+        ),
+        PlatePart(PlateSection.plain),
+      ]),
+      end: 445,
+    ),
+    PlatePart(PlateSection.plain),
+  ]);
+}
+
+/// One design, six categories.
+///
+/// The top row is a letter, a two-character vehicle category code (`B1`) and a
+/// letter; the bottom row the serial of up to four digits, after the category's
+/// type letter. Values are `[first, category letter, category digit, last,
+/// serial, type]`; the type (`P`, `C`, `G`, `S`, `T`, `D`) is a chosen slot and
+/// `MaldivesThemes.byType` picks the taxi and diplomatic liveries. Text groups:
+/// `first`, `category`, `last`, `serial`, `type`.
+abstract final class MaldivesPlates {
+  static final PlateSpec standard = _spec();
+
+  static List<PlateSpec> get all => <PlateSpec>[standard];
+
+  static PlateSpec _spec() {
+    final slots = <PlateSlot>[];
+    final groups = <PlateTextGroup>[];
+
+    void run(
+      String? key,
+      PlateAlphabet alphabet,
+      int count,
+      double cx,
+      double pitch,
+      double cy,
+      double height, {
+      int? minLength,
+    }) {
+      if (key != null) {
+        groups.add(PlateTextGroup(<int>[slots.length], key: key));
+      }
+      slots.add(
+        plateRun(
+          alphabet,
+          count,
+          centre: cx,
+          top: cy - height / 2,
+          pitch: pitch,
+          height: height,
+          minLength: minLength,
+        ),
+      );
+    }
+
+    const w = _Layout.singleWidth;
+    const top = _Layout.topCy, box = _Layout.topBox;
+    run('first', MaldivesAlphabets.letters, 1, _Layout.firstCx, w, top, box);
+    // The category is a letter then a digit: two alphabets, so two runs
+    // under one group.
+    final categoryStart = slots.length;
+    const cp = _Layout.categoryPitch;
+    final cx = _Layout.categoryCx;
+    run(null, MaldivesAlphabets.letters, 1, cx - cp / 2, cp, top, box);
+    run(null, MaldivesAlphabets.digits, 1, cx + cp / 2, cp, top, box);
+    groups.add(
+      PlateTextGroup(<int>[categoryStart, categoryStart + 1], key: 'category'),
+    );
+    run('last', MaldivesAlphabets.letters, 1, _Layout.lastCx, w, top, box);
+    run(
+      'serial',
+      MaldivesAlphabets.digits,
+      4,
+      _Layout.serialCx,
+      _Layout.serialPitch,
+      _Layout.bottomCy,
+      _Layout.bottomBox,
+      minLength: 1,
+    );
+    run(
+      'type',
+      MaldivesAlphabets.type,
+      1,
+      _Layout.letterCx,
+      w,
+      _Layout.bottomCy,
+      _Layout.bottomBox,
+    );
+
+    return PlateSpec(
+      id: 'mv.standard',
+      country: MaldivesCountry.maldives,
+      canvasWidth: _Layout.width,
+      canvasHeight: _Layout.height,
+      background: _Layout.frame,
+      borderWidthRatioOverride: 0,
+      slots: slots,
+      resolveTheme: MaldivesThemes.byType,
+      textGroups: groups,
+    );
+  }
+}

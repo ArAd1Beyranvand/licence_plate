@@ -1,0 +1,98 @@
+name: license_plate
+description: "Every licence plate in one Flutter package: the plate_core engine, alphabets, an on-screen keypad and 182 countries' plates."
+version: 0.1.0
+repository: https://github.com/ArAd1Beyranvand/licence_plate
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+
+flutter:
+  assets:
+    - assets/countries/albania/
+    - assets/countries/algeria/
+    - assets/countries/andorra/icons/
+    - assets/countries/antigua_and_barbuda/icons/
+    - assets/countries/austria/icons/
+    - assets/countries/belize/flags/
+    - assets/countries/benin/icons/
+    - assets/countries/bolivia/flags/
+    - assets/countries/brazil/flags/
+    - assets/countries/burkina_faso/icons/
+    - assets/countries/cameroon/icons/
+    - assets/countries/canada/icons/
+    - assets/countries/caribbean/anguilla/flags/
+    - assets/countries/caribbean/anguilla/icons/
+    - assets/countries/costa_rica/icons/
+    - assets/countries/croatia/icons/
+    - assets/countries/equatorial_guinea/icons/
+    - assets/countries/estonia/icons/
+    - assets/countries/finland/icons/
+    - assets/countries/france/icons/
+    - assets/countries/gabon/icons/
+    - assets/countries/germany/
+    - assets/countries/greece/
+    - assets/countries/guinea/icons/
+    - assets/countries/guyana/icons/
+    - assets/countries/haiti/flags/
+    - assets/countries/hungary/icons/
+    - assets/countries/india/
+    - assets/countries/indian_ocean/christmas_island/
+    - assets/countries/indonesia/
+    - assets/countries/iran/
+    - assets/countries/iran/flags/
+    - assets/countries/iranshahr/emblems/
+    - assets/countries/iranshahr/flags/
+    - assets/countries/iranshahr/icons/
+    - assets/countries/kiribati/icons/
+    - assets/countries/kyrgyzstan/icons/
+    - assets/countries/lebanon/
+    - assets/countries/lesotho/icons/
+    - assets/countries/liechtenstein/icons/
+    - assets/countries/lithuania/icons/
+    - assets/countries/mauritania/
+    - assets/countries/mexico/icons/
+    - assets/countries/moldova/flags/
+    - assets/countries/mongolia/icons/
+    - assets/countries/montenegro/icons/
+    - assets/countries/morocco/icons/
+    - assets/countries/mozambique/icons/
+    - assets/countries/niger/maps/
+    - assets/countries/north_korea/icons/
+    - assets/countries/pakistan/icons/
+    - assets/countries/palestine/fonts/
+    - assets/countries/palestine/marks/
+    - assets/countries/republic_of_the_congo/icons/
+    - assets/countries/russia/abkhazia/icons/
+    - assets/countries/russia/belarus/flags/
+    - assets/countries/russia/transnistria/icons/
+    - assets/countries/russia/ukraine/icons/
+    - assets/countries/san_marino/icons/
+    - assets/countries/serbia/icons/
+    - assets/countries/serbia/kosovo/icons/
+    - assets/countries/slovakia/icons/
+    - assets/countries/somalia/emblem/
+    - assets/countries/sri_lanka/icons/
+    - assets/countries/switzerland/icons/
+    - assets/countries/tunisia/fonts/
+    - assets/countries/united_kingdom/icons/
+    - assets/countries/united_kingdom/isle_of_man/icons/
+    - assets/countries/united_kingdom/jersey/icons/
+    - assets/countries/vanuatu/icons/
+    - assets/countries/yemen/riyadh/
+    - assets/countries/yemen/southern/
+  fonts:
+    - family: TunisiaAmiri
+      fonts:
+        - asset: assets/countries/tunisia/fonts/Amiri-Bold-tunis.ttf
+          weight: 700

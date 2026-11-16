@@ -1,0 +1,13 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import 'burkina_faso_colors.dart';
+
+/// The plates have no country block (the "BF" is a label), so every spec sets
+/// `noPanel`.
+abstract final class BurkinaFasoCountry {
+  static const PlateCountry burkinaFaso = PlateCountry(
+    code: 'bf',
+    panelColor: BurkinaFasoColors.white,
+    panelTextColor: BurkinaFasoColors.black,
+  );
+}

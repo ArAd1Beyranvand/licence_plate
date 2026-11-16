@@ -1,0 +1,18 @@
+import 'dart:math';
+
+import 'package:license_plate/core/plate_core.dart';
+
+abstract final class NigerSerialGenerator {
+  static List<String?> generate(PlateSpec spec, {Random? random}) {
+    final Random rnd = random ?? Random();
+    return <String?>[
+      for (final PlateSlot slot in spec.slots)
+        [
+          for (int i = 0; i < slot.length; i++)
+            slot.alphabet.characters[rnd.nextInt(
+              slot.alphabet.characters.length,
+            )],
+        ].join(),
+    ];
+  }
+}

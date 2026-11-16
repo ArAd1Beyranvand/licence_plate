@@ -1,0 +1,26 @@
+import 'package:license_plate/core/plate_core.dart';
+
+/// The alphabets behind Uzbek slots.
+///
+/// Plates use only Latin capitals and ASCII digits. The article states no
+/// forbidden letters, so every letter is allowed.
+abstract final class UzbekistanAlphabets {
+  /// Region code, serial and diplomatic digits.
+  static const PlateAlphabet digits = PlateAlphabet.latinDigits;
+
+  /// Series letters.
+  static const PlateAlphabet letters = PlateAlphabet.latinUppercase;
+
+  /// The `H` (foreign citizen) or `M` (foreign company) after the region.
+  static const PlateAlphabet foreignClass = PlateAlphabet(
+    id: 'uz.foreignClass',
+    characters: <String>['H', 'M'],
+    input: AlphabetInput.chosen,
+  );
+
+  /// The `D` (diplomat) or `T` (technical staff) a diplomatic plate opens with.
+  static const PlateAlphabet diplomaticStatus = PlateAlphabet(
+    id: 'uz.diplomaticStatus',
+    characters: <String>['D', 'T'],
+  );
+}

@@ -1,0 +1,13 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import 'india_colors.dart';
+
+/// No panel: the HSRP's chakra and IND are a decal and a label on the private
+/// specs, so every spec sets `noPanel`.
+abstract final class IndiaCountry {
+  static const PlateCountry india = PlateCountry(
+    code: 'in',
+    panelColor: IndiaColors.white,
+    panelTextColor: IndiaColors.black,
+  );
+}

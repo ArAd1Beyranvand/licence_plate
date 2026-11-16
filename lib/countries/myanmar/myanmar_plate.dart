@@ -1,0 +1,13 @@
+/// Myanmar's licence plates for the `plate_core` library.
+///
+/// Private, hire, religious, embossed and Burmese-script plates, their
+/// themes, alphabets and advisory validators.
+library;
+
+export 'package:license_plate/alphabet/plate_alphabet.dart' show MyanmarAlphabets;
+export 'src/myanmar_colors.dart';
+export 'src/myanmar_country.dart';
+export 'src/myanmar_plates.dart';
+export 'src/myanmar_regions.dart';
+export 'src/myanmar_themes.dart';
+export 'src/myanmar_validators.dart';

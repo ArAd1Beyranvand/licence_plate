@@ -1,0 +1,175 @@
+import 'package:flutter/widgets.dart' show EdgeInsets;
+import 'package:license_plate/alphabet/plate_alphabet.dart';
+import 'package:license_plate/core/plate_core.dart';
+
+import 'republic_of_ireland_colors.dart';
+import 'republic_of_ireland_country.dart';
+
+/// Plate units measured off the flattened references
+/// (`Ireland_license_plate__EV_`,
+/// `Revised_format_Republic_of_Ireland_numberplate__2013-_`) normalised to
+/// 520×110 (4 px per unit, with a 1-unit margin around the frame left in).
+///
+/// Serial row: ink y 27.8–96.0 (68.2 tall, centre 61.9). Cells of `252-D-23456`
+/// are centred 71.4, 114.0, 156.6 | hyphen 190.0 | 223.5 | hyphen 257.0 |
+/// 288.4, 331.0, 373.4, 416.3, 458.7: pitch 42.5 inside a group, 33.4 from a
+/// group's last character to a hyphen and 33.5 beyond it (31.4 before the
+/// number). Ink is 35 wide. Hyphens are 22 × 9.4 at y 60.8–70.2.
+///
+/// The ink is 68 tall on a 110 canvas; a box that tall would need ~124, so the
+/// box is capped at the largest that stays on the canvas (96.2 about the
+/// ink's centre) and the ink lands near 72% of reference.
+///
+/// Caption (Irish county name): cap height 12.0, y 11.2–23.2, centred on the
+/// field between the euroband and the right edge (265 with the electric strip,
+/// 280 without). `IRL`: white, y 67.8–87.2, x 11.5–40.2. Stars: x 9–43,
+/// y 18.5–51.8, FFCC00.
+///
+/// Background: a blue column ending at x = 46 (blue measured 6.0–45.8 inside
+/// the frame; the frame paints over the outer part). The electric plate adds a
+/// green column from x = 484.5 (measured 484.5–514.2) to the edge.
+abstract final class _Layout {
+  static const double width = 520, height = 110;
+  static const double bandEnd = 46, stripStart = 484.5;
+
+  static const double serialCy = 61.9, serialBox = 96, pitch = 42.5;
+  static const double firstCx = 71.4, lastCx = 458.7;
+  static const double toHyphen = 33.4, fromHyphen = 33.5, toNumber = 31.4;
+
+  static const double hyphenWidth = 22, hyphenTop = 60.8, hyphenHeight = 9.4;
+
+  static const double captionCy = 17.2, captionBox = 24, captionGlyph = 23.5;
+  static const double captionWidth = 300;
+
+  static const double irlLeft = 2.85, irlTop = 65.5, irlWidth = 46;
+  static const double irlHeight = 24, irlGlyph = 26;
+}
+
+/// The Irish plate, `YYH-CC-NNNNN`, with the Irish-language county name above
+/// the number and the EU band at the left.
+///
+/// The caption follows the typed county code
+/// ([RepublicOfIrelandAlphabets.countyNames]); the county field holds one or
+/// two letters and the serial one to six digits. Groups `year`, `county`, `serial`. Both pair with
+/// [RepublicOfIrelandThemes.standard].
+///
+/// [electric] adds the optional green strip at the right edge, from July 2025.
+/// Not implemented, for lack of a measured reference: the square-plate variant
+/// (green under the euroband), the ZZ temporary, diplomatic, trade and historic
+/// plates, and the 1987–2012 `YY-CC-NNNNNN` format.
+abstract final class RepublicOfIrelandPlates {
+  static final PlateSpec standard = _spec(electric: false);
+  static final PlateSpec electric = _spec(electric: true);
+
+  static List<PlateSpec> get all => <PlateSpec>[standard, electric];
+
+  static PlateSpec _spec({required bool electric}) {
+    // Cell centres, in reading order, squeezed so the number still ends at
+    // lastCx: three year digits, the two-letter county field, five serial cells.
+    final List<double> raw = <double>[0, _Layout.pitch, 2 * _Layout.pitch];
+    raw.add(raw.last + _Layout.toHyphen + _Layout.fromHyphen);
+    raw.add(raw.last + _Layout.pitch);
+    raw.add(raw.last + _Layout.toHyphen + _Layout.toNumber);
+    for (int i = 1; i < 5; i++) {
+      raw.add(raw.last + _Layout.pitch);
+    }
+    final double scale = (_Layout.lastCx - _Layout.firstCx) / raw.last;
+    final List<double> cx = <double>[
+      for (final double r in raw) _Layout.firstCx + r * scale,
+    ];
+    final double pitch = _Layout.pitch * scale;
+
+    PlateSlot field(
+      PlateAlphabet a,
+      double firstCx,
+      int cells,
+      int length, {
+      int? minLength,
+    }) => PlateSlot(
+      alphabet: a,
+      box: PlateBox(
+        firstCx - pitch / 2,
+        _Layout.serialCy - _Layout.serialBox / 2,
+        cells * pitch,
+        _Layout.serialBox,
+      ),
+      length: length,
+      minLength: minLength,
+    );
+
+    PlateRule hyphen(double c) => PlateRule(
+      box: PlateBox(
+        c - _Layout.hyphenWidth / 2,
+        _Layout.hyphenTop,
+        _Layout.hyphenWidth,
+        _Layout.hyphenHeight,
+      ),
+    );
+
+    final double fieldEnd = electric ? _Layout.stripStart : _Layout.width;
+    final double captionCx = (_Layout.bandEnd + fieldEnd) / 2;
+
+    return PlateSpec(
+      id: 'ie.${electric ? 'electric' : 'standard'}',
+      country: RepublicOfIrelandCountry.republic_of_ireland,
+      canvasWidth: _Layout.width,
+      canvasHeight: _Layout.height,
+      panel: const PlatePanel(
+        box: PlateBox(0, 0, _Layout.bandEnd, 70.4),
+        padding: EdgeInsets.zero,
+      ),
+      background: PlateSection.columns(<PlatePart>[
+        const PlatePart(
+          PlateSection.fill(PlateFill.panel),
+          end: _Layout.bandEnd,
+        ),
+        PlatePart(PlateSection.plain, end: electric ? fieldEnd : null),
+        if (electric)
+          const PlatePart(
+            PlateSection.fill(PlateFill.color(RepublicOfIrelandColors.green)),
+          ),
+      ]),
+      slots: <PlateSlot>[
+        field(RepublicOfIrelandAlphabets.digits, cx[0], 3, 3),
+        field(
+          RepublicOfIrelandAlphabets.countyLetters,
+          cx[3],
+          2,
+          2,
+          minLength: 1,
+        ),
+        field(RepublicOfIrelandAlphabets.digits, cx[5], 5, 6, minLength: 1),
+      ],
+      rules: <PlateRule>[
+        hyphen((cx[2] + cx[3]) / 2),
+        hyphen((cx[4] + cx[5]) / 2),
+      ],
+      labels: <PlateLabel>[
+        PlateLabel(
+          text: RepublicOfIrelandAlphabets.countyNames['D']!,
+          resolve: (String Function(String) group) =>
+              RepublicOfIrelandAlphabets.countyNames[group('county')],
+          box: PlateBox.centered(
+            captionCx,
+            _Layout.captionCy,
+            _Layout.captionWidth,
+            _Layout.captionBox,
+          ),
+          glyphHeight: _Layout.captionGlyph,
+        ),
+        const PlateLabel(
+          text: 'IRL',
+          box: PlateBox(
+            _Layout.irlLeft,
+            _Layout.irlTop,
+            _Layout.irlWidth,
+            _Layout.irlHeight,
+          ),
+          glyphHeight: _Layout.irlGlyph,
+          color: RepublicOfIrelandColors.white,
+        ),
+      ],
+      textGroups: PlateTextGroup.perSlot(<String>['year', 'county', 'serial']),
+    );
+  }
+}

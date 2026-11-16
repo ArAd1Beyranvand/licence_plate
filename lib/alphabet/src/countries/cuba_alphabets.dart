@@ -1,0 +1,29 @@
+import 'package:license_plate/core/plate_core.dart';
+
+import '../plate_alphabet.dart';
+
+/// The two alphabets of a 2013 plate: one series letter, then Latin digits.
+abstract final class CubaAlphabets {
+  static const PlateAlphabet digits = PlateAlphabetDigits.english;
+
+  /// The series letter. I, O, Q, S, W and Z are not issued, to avoid confusing
+  /// them with digits and with each other.
+  static const PlateAlphabet letters = PlateAlphabet.pattern(
+    id: 'cu.letters',
+    include: 'A-Y',
+    exclude: 'I O Q S W',
+  );
+
+  /// The letters that mean something. Every other letter is an unassigned
+  /// series.
+  static const Map<String, String> letterMeanings = <String, String>{
+    'A': 'Official',
+    'C': 'Diplomatic',
+    'D': 'Diplomatic',
+    'E': 'Diplomatic',
+    'F': 'Armed forces (FAR)',
+    'K': 'Foreigners',
+    'M': 'Interior ministry (MININT)',
+    'T': 'Rented to tourism',
+  };
+}
